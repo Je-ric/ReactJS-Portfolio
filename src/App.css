@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+/* Additional Baymax-specific styles */
+.healthcare-mode {
+  filter: hue-rotate(120deg);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.developer-mode {
+  filter: contrast(1.2) saturate(1.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section-transition {
+  transition: all 0.3s ease-in-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.baymax-button {
+  transition: all 0.2s ease;
+  border-radius: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.baymax-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
