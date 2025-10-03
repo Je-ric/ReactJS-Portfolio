@@ -1,22 +1,12 @@
 "use client"
 
-/*
-  File: class/About.js
-  What it is: A Class Component that renders the About section.
-  How it works: Manages its own state inside a class (`this.state`) and updates it using
-  `this.setState`. Demonstrates lifecycle (`componentDidMount`) for reading/writing localStorage.
-  Also demonstrates event handling via class field arrow methods bound to the instance.
-
-  Concepts demonstrated:
-  - Class component with constructor and `render()`
-  - State: `activeSkill`, `visitCount`, `isAnimating`
-  - Lifecycle: `componentDidMount` side effect and localStorage persistence
-  - Event handling: `handleSkillClick`, `handleSkillHover`
-*/
-
 import { Component } from "react"
 import ScrambledText from '../ui/ScrambledText';
 import SectionTitle from '../layout/SectionTitle';
+import GlowBox from '../layout/GlowingBox';
+
+import { FaStar, FaHeart } from 'react-icons/fa';
+import { MdRocket } from 'react-icons/md';
 
 // import { Canvas } from "@react-three/fiber"
 // import { OrbitControls, useGLTF } from "@react-three/drei"
@@ -56,9 +46,19 @@ class About extends Component {
         <DreamComputer />
         <OrbitControls enableZoom={true} />
       </Canvas> */}
+
+      <GlowBox color="#1DCD9F" icon={FaStar} title="Star" />
+<GlowBox color="#FF3CAC" icon={FaHeart} title="Love" />
+<GlowBox color="#FFD700" icon={MdRocket} title="Rocket" />
+
+
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <SectionTitle text="About Me" />
+            {/* <SectionTitle text="About Me" /> */}
+            <SectionTitle 
+                title="About" 
+                subTitle="Me" 
+              />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From healthcare companion to full-stack developer. Visit #{visitCount}
             </p>

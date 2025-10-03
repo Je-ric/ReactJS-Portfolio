@@ -13,7 +13,6 @@ import BackToTop from "./components/BackToTop";
 import Mouse from "./components/Mouse";
 import GlobalBG from "./components/ui/GlobalBG";
 
-
 function App() {
   const [currentSection, setCurrentSection] = useState("dashboard");
   const [showPreloader, setShowPreloader] = useState(true);

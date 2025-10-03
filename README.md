@@ -43,6 +43,7 @@ npm install tailwindcss class-variance-authority tailwind-variants lucide-react 
 npm install gsap
 npm install @react-three/drei @react-three/fiber three
 npm install @gsap/react
+npm install react-icons
 
 npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
 
