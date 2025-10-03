@@ -49,6 +49,15 @@ const Dashboard = () => {
   
       {/* Foreground Content */}
       <div className="container mx-auto text-center space-y-8 relative z-10">
+         {/* Profile Image */}
+  <div className="flex justify-center">
+    <img
+      src="/src/profile.png"   
+      alt="Baymax Avatar"
+      className="w-40 h-40 rounded-full shadow-lg object-cover"
+    />
+  </div>
+
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold">{content.title}</h1>
           <p className="text-xl md:text-2xl text-muted-foreground">

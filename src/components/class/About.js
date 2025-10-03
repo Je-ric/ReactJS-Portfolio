@@ -16,6 +16,13 @@
 
 import { Component } from "react"
 import ScrambledText from '../ui/ScrambledText';
+// import { Canvas } from "@react-three/fiber"
+// import { OrbitControls, useGLTF } from "@react-three/drei"
+
+// function DreamComputer() {
+//   const { scene } = useGLTF("/models/dream_computer_setup.glb") 
+//   return <primitive object={scene} scale={0.5} />
+// }
 
 class About extends Component {
   constructor(props) {
@@ -27,42 +34,26 @@ class About extends Component {
     }
   }
 
-  // Lifecycle method: invoked once after initial render
   componentDidMount() {
-    // Simulate visit tracking
     const visits = localStorage.getItem("aboutVisits") || 0
     const newVisitCount = Number.parseInt(visits) + 1
     localStorage.setItem("aboutVisits", newVisitCount)
     this.setState({ visitCount: newVisitCount })
 
-    console.log("[v0] About component mounted, visit count:", newVisitCount)
   }
-
-  // Event handler toggles active skill and triggers a short animation
-  handleSkillClick = (skill) => {
-    console.log("[v0] Skill clicked:", skill)
-    this.setState({
-      activeSkill: this.state.activeSkill === skill ? null : skill,
-      isAnimating: true,
-    })
-
-    // Reset animation state
-    setTimeout(() => {
-      this.setState({ isAnimating: false })
-    }, 300)
-  }
-
-  // Event handler used to demonstrate hover logging
-  handleSkillHover = (skill) => {
-    console.log("[v0] Skill hovered:", skill)
-  }
-
+  
   render() {
     const { visitCount } = this.state
 
     return (
 
       <section id="about" className="min-h-screen py-20 px-8">
+        {/* <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 5]} />
+        <DreamComputer />
+        <OrbitControls enableZoom={true} />
+      </Canvas> */}
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Baymax</h2>
