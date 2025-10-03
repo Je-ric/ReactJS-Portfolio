@@ -8,6 +8,7 @@ import About from "./components/class/About";
 import Contact from "./components/class/Contact";
 import Preloader from "./components/Preloader";
 import ScrollProgressIndicator from "./components/ScrollProgressIndicator";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("dashboard");
@@ -65,7 +66,11 @@ function App() {
           <Projects />
           <Contact />
         </main>
+
+        <BackToTop />
       </div>
+
+  
     </ThemeProvider>
     </>
   );
