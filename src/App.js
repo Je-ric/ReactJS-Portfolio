@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ThemeProvider } from "./components/ThemeProvider";
+import "./App.css"
 
 import Navigation from "./components/Navigation";
 import Dashboard from "./components/functional/Dashboard";
@@ -9,6 +10,9 @@ import Contact from "./components/class/Contact";
 import Preloader from "./components/Preloader";
 import ScrollProgressIndicator from "./components/ScrollProgressIndicator";
 import BackToTop from "./components/BackToTop";
+import Mouse from "./components/Mouse";
+import GlobalBG from "./components/ui/GlobalBG";
+
 
 function App() {
   const [currentSection, setCurrentSection] = useState("dashboard");
@@ -43,6 +47,8 @@ function App() {
 
   return (
     <>
+    <GlobalBG />
+
     {/*  */}
     <ScrollProgressIndicator />
 
@@ -53,6 +59,7 @@ function App() {
         {/*  */}
         {showPreloader && <Preloader onFinish={() => setShowPreloader(false)} />}
 
+        <Mouse />
         {/*  */}
         <Navigation
           currentSection={currentSection}

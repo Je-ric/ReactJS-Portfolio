@@ -1,33 +1,20 @@
 "use client"
-
-/*
-  File: Navigation.js
-  What it is: A functional component that renders the top navigation bar.
-  How it works: Uses props (`currentSection`, `onSectionChange`) to highlight the active section and to
-  communicate user intent upward when a nav item is clicked. It also consumes context values from
-  `ThemeProvider` via the `useTheme` hook to show and toggle theme and a custom "Baymax mode".
-
-  Concepts demonstrated:
-  - Functional component (React function returning JSX)
-  - Props: `currentSection` (string), `onSectionChange` (function callback)
-  - Event handling: button `onClick` scrolls and notifies parent; select `onChange` updates context
-  - Context usage: `useTheme` provides `theme`, `toggleTheme`, `baymaxMode`, `changeBaymaxMode`
-*/
+import { useState } from "react"
 import { useTheme } from "./ThemeProvider"
 
 const Navigation = ({ currentSection, onSectionChange }) => {
   const { theme, toggleTheme } = useTheme()
+  const [menuOpen, setMenuOpen] = useState(false)
 
-  // Event handler: scroll to a section and inform parent about the change via prop callback
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
       onSectionChange(sectionId)
+      setMenuOpen(false) // close menu on mobile
     }
   }
 
-  // Local data used to render buttons. `currentSection` determines which one is styled as active
   const navItems = [
     { id: "dashboard", label: "Dashboard" },
     { id: "projects", label: "Projects" },
@@ -43,28 +30,60 @@ const Navigation = ({ currentSection, onSectionChange }) => {
           <span className="font-bold text-xl">Portfolio</span>
         </div>
 
+        {/* Desktop menu */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`px-4 py-2 rounded-full transition-all ${
-                currentSection === item.id ? "bg-primary text-primary-foreground" : "hover:bg-secondary"
+                currentSection === item.id
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary"
               }`}
             >
               {item.label}
             </button>
           ))}
-        </div>
-
-        <div className="flex items-center space-x-2">
-
-          {/* Simple button toggling theme via context function */}
-          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-secondary">
+          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary">
             {theme === "light" ? "🌙" : "☀️"}
           </button>
         </div>
+
+        {/* Mobile hamburger menu */}
+        <div className="flex md:hidden items-center space-x-2">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col justify-between w-6 h-5"
+          >
+            <span className="block h-0.5 w-full bg-primary transition-transform duration-300" style={{ transform: menuOpen ? "rotate(45deg) translateY(8px)" : "rotate(0)" }}></span>
+            <span className={`block h-0.5 w-full bg-primary transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`}></span>
+            <span className="block h-0.5 w-full bg-primary transition-transform duration-300" style={{ transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "rotate(0)" }}></span>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {menuOpen && (
+        <div className="md:hidden bg-background/90 backdrop-blur-md border-t flex flex-col items-center space-y-4 py-4">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`px-4 py-2 rounded-full transition-all ${
+                currentSection === item.id
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary"
+              }`}
+            >
+              {item.label}
+            </button>
+          ))}
+          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary">
+            {theme === "light" ? "🌙" : "☀️"}
+          </button>
+        </div>
+      )}
     </nav>
   )
 }

@@ -1,12 +1,4 @@
 /* Additional Baymax-specific styles */
-.healthcare-mode {
-  filter: hue-rotate(120deg);
-}
-
-.developer-mode {
-  filter: contrast(1.2) saturate(1.3);
-}
-
 .section-transition {
   transition: all 0.3s ease-in-out;
 }
@@ -28,4 +20,34 @@
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.circle {
+	height: 24px;
+	width: 24px;
+	border-radius: 100%;
+	background-color: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+	z-index: 99999999;
+	transform-origin: center center;
+	transition: width 200ms;
+}
+
+.circle-hidden {
+	display: none;
+}
+
+.circle-thin {
+	height: 20px;
+	width: 2px;
+}
+
+@media screen and (max-width: 750px) {
+	.circle {
+		display: none;
+	}
 }
