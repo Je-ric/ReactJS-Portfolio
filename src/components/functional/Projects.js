@@ -1,5 +1,19 @@
 "use client"
 
+/*
+  File: functional/Projects.js
+  What it is: A functional component that lists projects and lets the user filter them.
+  How it works: Uses `useState` to track the selected filter and a local array of `projects`.
+  Demonstrates props by passing `project` and `onView` to the child component `ProjectCard`.
+  Demonstrates event handling via clicks on filter buttons, technology chips, and "View Project".
+
+  Concepts demonstrated:
+  - Functional components (`Projects`, `ProjectCard`)
+  - Props: `ProjectCard` receives `project` data and `onView` callback
+  - State: `selectedFilter` controls which projects are shown
+  - Event handling: button `onClick` handlers for filtering and viewing
+*/
+
 import { useState } from "react"
 
 const ProjectCard = ({ project, onView }) => (
@@ -27,6 +41,7 @@ const ProjectCard = ({ project, onView }) => (
 )
 
 const Projects = () => {
+  // State controls active filter; changes re-compute `filteredProjects`
   const [selectedFilter, setSelectedFilter] = useState("all")
   const [projects] = useState([
     {
@@ -59,6 +74,7 @@ const Projects = () => {
     },
   ])
 
+  // Event handler passed to child via props, demonstrating parent-child communication
   const handleProjectView = (project) => {
     console.log("[v0] Project viewed:", project.title)
     alert(

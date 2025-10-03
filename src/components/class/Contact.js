@@ -1,5 +1,18 @@
 "use client"
 
+/*
+  File: class/Contact.js
+  What it is: A Class Component that renders a contact form and contact methods.
+  How it works: Keeps form fields and submission state in `this.state`. Validates inputs on submit
+  and simulates an async submission. Demonstrates class event handlers for inputs and form actions.
+
+  Concepts demonstrated:
+  - Class component with controlled form inputs
+  - State: `formData`, `isSubmitting`, `submitCount`, `errors`
+  - Event handling: `onChange`, `onFocus`, `onSubmit`, and button `onClick`
+  - Basic validation: email regex and required fields
+*/
+
 import { Component } from "react"
 
 class Contact extends Component {
@@ -18,10 +31,12 @@ class Contact extends Component {
     }
   }
 
+  // Lifecycle method for side effects (logging here)
   componentDidMount() {
     console.log("[v0] Contact component mounted")
   }
 
+  // Controlled input change handler updates nested `formData` keys and clears individual errors
   handleInputChange = (e) => {
     const { name, value } = e.target
     this.setState((prevState) => ({
@@ -37,10 +52,12 @@ class Contact extends Component {
     console.log("[v0] Form field updated:", name, value)
   }
 
+  // Simple focus handler to show focus events are captured
   handleInputFocus = (e) => {
     console.log("[v0] Input focused:", e.target.name)
   }
 
+  // Synchronous validation returning a flat error object keyed by field name
   validateForm = () => {
     const { formData } = this.state
     const errors = {}
@@ -68,6 +85,7 @@ class Contact extends Component {
     return errors
   }
 
+  // Form submit handler performs validation and simulates async submission via setTimeout
   handleSubmit = (e) => {
     e.preventDefault()
     console.log("[v0] Form submission attempted")
@@ -101,6 +119,7 @@ class Contact extends Component {
     }, 2000)
   }
 
+  // Reset handler demonstrates resetting nested state in a class component
   handleReset = () => {
     console.log("[v0] Form reset")
     this.setState({

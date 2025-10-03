@@ -1,7 +1,4 @@
-"use client"
-
 import { useState, useEffect } from "react"
-import "./App.css"
 import { ThemeProvider } from "./components/ThemeProvider"
 import Navigation from "./components/Navigation"
 import Dashboard from "./components/functional/Dashboard"
@@ -16,7 +13,6 @@ function App() {
   useEffect(() => {
     setIsLoaded(true)
 
-    // Intersection Observer for section detection
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,7 +24,6 @@ function App() {
       { threshold: 0.5 },
     )
 
-    // Observe all sections
     const sections = ["dashboard", "projects", "about", "contact"]
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId)
@@ -52,7 +47,10 @@ function App() {
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background">
-        <Navigation currentSection={currentSection} onSectionChange={setCurrentSection} />
+        <Navigation
+          currentSection={currentSection}
+          onSectionChange={setCurrentSection}
+        />
 
         <main className="pt-20">
           <Dashboard />

@@ -31,6 +31,17 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
+npm uninstall tailwindcss postcss autoprefixer
+npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+npx shadcn@latest add https://reactbits.dev/r/SplitText-JS-TW
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+npm install tailwindcss class-variance-authority tailwind-variants lucide-react @radix-ui/react-slot
+
+
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.

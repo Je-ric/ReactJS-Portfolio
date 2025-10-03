@@ -13,16 +13,15 @@ export const useTheme = () => {
 }
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light")
-  const [baymaxMode, setBaymaxMode] = useState("normal") // normal, healthcare, developer
+  const [theme, setTheme] = useState("dark") // default
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light"
+    const savedTheme = localStorage.getItem("theme")
     const savedMode = localStorage.getItem("baymaxMode") || "normal"
-    setTheme(savedTheme)
-    setBaymaxMode(savedMode)
+    const initialTheme = savedTheme || "dark"
+    setTheme(initialTheme)
 
-    document.documentElement.classList.toggle("dark", savedTheme === "dark")
+    document.documentElement.classList.toggle("dark", initialTheme === "dark")
     document.body.className = savedMode === "normal" ? "" : `${savedMode}-mode`
   }, [])
 
@@ -33,19 +32,11 @@ export function ThemeProvider({ children }) {
     document.documentElement.classList.toggle("dark", newTheme === "dark")
   }
 
-  const changeBaymaxMode = (mode) => {
-    setBaymaxMode(mode)
-    localStorage.setItem("baymaxMode", mode)
-    document.body.className = mode === "normal" ? "" : `${mode}-mode`
-  }
-
   return (
     <ThemeContext.Provider
       value={{
         theme,
         toggleTheme,
-        baymaxMode,
-        changeBaymaxMode,
       }}
     >
       {children}

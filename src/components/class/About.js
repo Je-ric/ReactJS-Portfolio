@@ -1,5 +1,19 @@
 "use client"
 
+/*
+  File: class/About.js
+  What it is: A Class Component that renders the About section.
+  How it works: Manages its own state inside a class (`this.state`) and updates it using
+  `this.setState`. Demonstrates lifecycle (`componentDidMount`) for reading/writing localStorage.
+  Also demonstrates event handling via class field arrow methods bound to the instance.
+
+  Concepts demonstrated:
+  - Class component with constructor and `render()`
+  - State: `activeSkill`, `visitCount`, `isAnimating`
+  - Lifecycle: `componentDidMount` side effect and localStorage persistence
+  - Event handling: `handleSkillClick`, `handleSkillHover`
+*/
+
 import { Component } from "react"
 
 class About extends Component {
@@ -12,6 +26,7 @@ class About extends Component {
     }
   }
 
+  // Lifecycle method: invoked once after initial render
   componentDidMount() {
     // Simulate visit tracking
     const visits = localStorage.getItem("aboutVisits") || 0
@@ -22,6 +37,7 @@ class About extends Component {
     console.log("[v0] About component mounted, visit count:", newVisitCount)
   }
 
+  // Event handler toggles active skill and triggers a short animation
   handleSkillClick = (skill) => {
     console.log("[v0] Skill clicked:", skill)
     this.setState({
@@ -35,6 +51,7 @@ class About extends Component {
     }, 300)
   }
 
+  // Event handler used to demonstrate hover logging
   handleSkillHover = (skill) => {
     console.log("[v0] Skill hovered:", skill)
   }
