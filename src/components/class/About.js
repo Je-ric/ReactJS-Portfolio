@@ -12,7 +12,7 @@ import { MdRocket } from 'react-icons/md';
 // import { OrbitControls, useGLTF } from "@react-three/drei"
 
 // function DreamComputer() {
-//   const { scene } = useGLTF("/models/dream_computer_setup.glb") 
+//   const { scene } = useGLTF("/models/computer301.glb")
 //   return <primitive object={scene} scale={0.5} />
 // }
 
@@ -40,25 +40,20 @@ class About extends Component {
     return (
 
       <section id="about" className="min-h-screen py-20 px-8">
-        {/* <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[5, 5, 5]} />
-        <DreamComputer />
-        <OrbitControls enableZoom={true} />
-      </Canvas> */}
+     
 
-      <GlowBox color="#1DCD9F" icon={FaStar} title="Star" />
-<GlowBox color="#FF3CAC" icon={FaHeart} title="Love" />
-<GlowBox color="#FFD700" icon={MdRocket} title="Rocket" />
+        <GlowBox color="#1DCD9F" icon={FaStar} title="Star" />
+        <GlowBox color="#FF3CAC" icon={FaHeart} title="Love" />
+        <GlowBox color="#FFD700" icon={MdRocket} title="Rocket" />
 
 
         <div className="container mx-auto">
           <div className="text-center mb-12">
             {/* <SectionTitle text="About Me" /> */}
-            <SectionTitle 
-                title="About" 
-                subTitle="Me" 
-              />
+            <SectionTitle
+              title="About"
+              subTitle="Me"
+            />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From healthcare companion to full-stack developer. Visit #{visitCount}
             </p>
@@ -84,15 +79,15 @@ class About extends Component {
               <div className="baymax-card p-6 rounded-lg">
                 <h3 className="text-2xl font-semibold mb-4">Quote</h3>
                 <p className="text-muted-foreground text-sm leading-5">
-                        <ScrambledText
-                          className="scrambled-text-demo"
-                          radius={100}
-                          duration={1.2}
-                          speed={0.5}
-                          scrambleChars=".:"
-                        >
-                          "If I have something to do today, I will do it now. To do something else tomorrow"
-                        </ScrambledText>
+                  <ScrambledText
+                    className="scrambled-text-demo"
+                    radius={100}
+                    duration={1.2}
+                    speed={0.5}
+                    scrambleChars=".:"
+                  >
+                    "If I have something to do today, I will do it now. To do something else tomorrow"
+                  </ScrambledText>
                 </p>
               </div>
 
