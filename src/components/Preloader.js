@@ -48,7 +48,7 @@ const Preloader = ({ onFinish }) => {
         <div
             className="fixed inset-0 z-[51] flex items-center justify-center pointer-events-none"
             ref={preloaderRef}
-            style={{ background: 'transparent' }} // remove black background
+            style={{ background: 'transparent' }} // remove black 
         >
             {/* Preloader bars */}
             <div className="preloader-item h-full w-[10%] bg-black"></div>

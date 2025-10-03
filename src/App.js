@@ -7,6 +7,7 @@ import Projects from "./components/functional/Projects";
 import About from "./components/class/About";
 import Contact from "./components/class/Contact";
 import Preloader from "./components/Preloader";
+import ScrollProgressIndicator from "./components/ScrollProgressIndicator";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("dashboard");
@@ -40,17 +41,24 @@ function App() {
   // }
 
   return (
+    <>
+    {/*  */}
+    <ScrollProgressIndicator />
 
+    {/*  */}
     <ThemeProvider>
       <div className="min-h-screen bg-background">
 
+        {/*  */}
         {showPreloader && <Preloader onFinish={() => setShowPreloader(false)} />}
 
+        {/*  */}
         <Navigation
           currentSection={currentSection}
           onSectionChange={setCurrentSection}
         />
 
+        {/*  */}
         <main className="pt-20">
           <Dashboard />
           <About />
@@ -59,6 +67,7 @@ function App() {
         </main>
       </div>
     </ThemeProvider>
+    </>
   );
 }
 
