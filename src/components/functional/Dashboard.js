@@ -2,7 +2,6 @@ import React from "react"
 import { useTheme } from "../ThemeProvider"
 import Silk from "../ui/Silk"
 
-
 const Dashboard = () => {
   const { baymaxMode } = useTheme()
 
@@ -10,7 +9,6 @@ const Dashboard = () => {
     const handleKeyPress = (e) => {
       if (e.ctrlKey && e.key === "h") {
         e.preventDefault()
-        // optional: trigger scan logic here
       }
     }
 
@@ -48,6 +46,7 @@ const Dashboard = () => {
         />
       </div>
 
+  
       {/* Foreground Content */}
       <div className="container mx-auto text-center space-y-8 relative z-10">
         <div className="space-y-4">

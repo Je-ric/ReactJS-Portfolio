@@ -40,7 +40,9 @@ npx tailwindcss init -p
 npx shadcn@latest add https://reactbits.dev/r/SplitText-JS-TW
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npm install tailwindcss class-variance-authority tailwind-variants lucide-react @radix-ui/react-slot
+npm install gsap
 
+npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 

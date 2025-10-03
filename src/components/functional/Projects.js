@@ -16,6 +16,7 @@
 
 import { useState } from "react"
 
+
 const ProjectCard = ({ project, onView }) => (
   <div className="project-card baymax-card p-6 rounded-lg">
     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
@@ -105,11 +106,10 @@ const Projects = () => {
                 setSelectedFilter(category)
                 console.log("[v0] Filter changed to:", category)
               }}
-              className={`px-4 py-2 rounded-full transition-all ${
-                selectedFilter === category
+              className={`px-4 py-2 rounded-full transition-all ${selectedFilter === category
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary hover:bg-secondary/80"
-              }`}
+                }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
             </button>
