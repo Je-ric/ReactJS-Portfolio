@@ -51,20 +51,22 @@ const Preloader = ({ onFinish }) => {
             style={{ background: 'transparent' }} // remove black 
         >
             {/* Preloader bars */}
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
-            <div className="preloader-item h-full w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
+            <div className="preloader-item h-full w-[8%] sm:w-[10%] bg-black"></div>
 
 
             {/* Animated name */}
-            <p className="name-text flex text-[20vw] lg:text-[200px] font-anton text-white font-extrabold text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none overflow-hidden z-[60]">
+            <p className="name-text flex text-[20vw] lg:text-[200px] font-anton text-white font-extrabold 
+                        text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                        leading-none overflow-hidden z-[60]">
                 <span className="inline-block translate-y-full">J</span>
                 <span className="inline-block translate-y-full">E</span>
                 <span className="inline-block translate-y-full">R</span>

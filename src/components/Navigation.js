@@ -1,5 +1,6 @@
 "use client"
 import { useState } from "react"
+import { FiMenu, FiX, FiMoon, FiSun } from "react-icons/fi"
 import { useTheme } from "./ThemeProvider"
 
 const Navigation = ({ currentSection, onSectionChange }) => {
@@ -45,8 +46,8 @@ const Navigation = ({ currentSection, onSectionChange }) => {
               {item.label}
             </button>
           ))}
-          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary">
-            {theme === "light" ? "🌙" : "☀️"}
+          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary" aria-label="Toggle theme">
+            {theme === "light" ? <FiMoon /> : <FiSun />}
           </button>
         </div>
 
@@ -54,11 +55,11 @@ const Navigation = ({ currentSection, onSectionChange }) => {
         <div className="flex md:hidden items-center space-x-2">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col justify-between w-6 h-5"
+            className="p-2 rounded-md hover:bg-secondary"
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
           >
-            <span className="block h-0.5 w-full bg-primary transition-transform duration-300" style={{ transform: menuOpen ? "rotate(45deg) translateY(8px)" : "rotate(0)" }}></span>
-            <span className={`block h-0.5 w-full bg-primary transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"}`}></span>
-            <span className="block h-0.5 w-full bg-primary transition-transform duration-300" style={{ transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "rotate(0)" }}></span>
+            {menuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
@@ -79,8 +80,8 @@ const Navigation = ({ currentSection, onSectionChange }) => {
               {item.label}
             </button>
           ))}
-          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary">
-            {theme === "light" ? "🌙" : "☀️"}
+          <button onClick={toggleTheme} className="px-4 py-2 rounded-full hover:bg-secondary" aria-label="Toggle theme">
+            {theme === "light" ? <FiMoon /> : <FiSun />}
           </button>
         </div>
       )}
