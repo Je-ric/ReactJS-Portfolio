@@ -16,6 +16,8 @@
 
 import { Component } from "react"
 import ScrambledText from '../ui/ScrambledText';
+import SectionTitle from '../layout/SectionTitle';
+
 // import { Canvas } from "@react-three/fiber"
 // import { OrbitControls, useGLTF } from "@react-three/drei"
 
@@ -41,7 +43,7 @@ class About extends Component {
     this.setState({ visitCount: newVisitCount })
 
   }
-  
+
   render() {
     const { visitCount } = this.state
 
@@ -56,7 +58,7 @@ class About extends Component {
       </Canvas> */}
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Baymax</h2>
+            <SectionTitle text="About Me" />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From healthcare companion to full-stack developer. Visit #{visitCount}
             </p>

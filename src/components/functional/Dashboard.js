@@ -1,6 +1,6 @@
 import React from "react"
 import { useTheme } from "../ThemeProvider"
-import Silk from "../ui/Silk"
+// import Silk from "../ui/Silk"
 
 const Dashboard = () => {
   const { baymaxMode } = useTheme()
@@ -36,7 +36,7 @@ const Dashboard = () => {
       className="relative min-h-screen flex items-center justify-center p-8 overflow-hidden"
     >
       {/* Background Effect */}
-      <div className="absolute inset-0 -z-10">
+      {/* <div className="absolute inset-0 -z-10">
         <Silk
           speed={5}
           scale={1}
@@ -44,19 +44,19 @@ const Dashboard = () => {
           noiseIntensity={1.5}
           rotation={0}
         />
-      </div>
+      </div> */}
 
-  
+
       {/* Foreground Content */}
       <div className="container mx-auto text-center space-y-8 relative z-10">
-         {/* Profile Image */}
-  <div className="flex justify-center">
-    <img
-      src="/src/profile.png"   
-      alt="Baymax Avatar"
-      className="w-40 h-40 rounded-full shadow-lg object-cover"
-    />
-  </div>
+        {/* Profile Image */}
+        <div className="flex justify-center">
+          <img
+            src="/src/profile.png"
+            alt="Baymax Avatar"
+            className="w-40 h-40 rounded-full shadow-lg object-cover"
+          />
+        </div>
 
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold">{content.title}</h1>

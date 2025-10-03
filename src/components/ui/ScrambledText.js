@@ -1,7 +1,7 @@
 // Usage:
 
 // import ScrambledText from './ScrambledText';
-  
+
 // <ScrambledText
 //   className="scrambled-text-demo"
 //   radius={100}
@@ -23,70 +23,74 @@ import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
 gsap.registerPlugin(SplitText, ScrambleTextPlugin);
 
 const ScrambledText = ({
-  radius = 100,
-  duration = 1.2,
-  speed = 0.5,
-  scrambleChars = '.:',
-  className = '',
-  style = {},
-  children
+    radius = 100,
+    duration = 1.2,
+    speed = 0.5,
+    scrambleChars = '.:',
+    className = '',
+    style = {},
+    children,
+    theme = "dark",
 }) => {
-  const rootRef = useRef(null);
+    const rootRef = useRef(null);
 
-  useEffect(() => {
-    if (!rootRef.current) return;
+    useEffect(() => {
+        if (!rootRef.current) return;
 
-    const split = SplitText.create(rootRef.current.querySelector('p'), {
-      type: 'chars',
-      charsClass: 'inline-block will-change-transform'
-    });
+        const split = SplitText.create(rootRef.current.querySelector('p'), {
+            type: 'chars',
+            charsClass: 'inline-block will-change-transform'
+        });
 
-    split.chars.forEach(el => {
-      const c = el;
-      gsap.set(c, { attr: { 'data-content': c.innerHTML } });
-    });
+        split.chars.forEach(el => {
+            const c = el;
+            gsap.set(c, { attr: { 'data-content': c.innerHTML } });
+        });
 
-    const handleMove = e => {
-      split.chars.forEach(el => {
-        const c = el;
-        const { left, top, width, height } = c.getBoundingClientRect();
-        const dx = e.clientX - (left + width / 2);
-        const dy = e.clientY - (top + height / 2);
-        const dist = Math.hypot(dx, dy);
+        const handleMove = e => {
+            split.chars.forEach(el => {
+                const c = el;
+                const { left, top, width, height } = c.getBoundingClientRect();
+                const dx = e.clientX - (left + width / 2);
+                const dy = e.clientY - (top + height / 2);
+                const dist = Math.hypot(dx, dy);
 
-        if (dist < radius) {
-          gsap.to(c, {
-            overwrite: true,
-            duration: duration * (1 - dist / radius),
-            scrambleText: {
-              text: c.dataset.content || '',
-              chars: scrambleChars,
-              speed
-            },
-            ease: 'none'
-          });
-        }
-      });
-    };
+                if (dist < radius) {
+                    gsap.to(c, {
+                        overwrite: true,
+                        duration: duration * (1 - dist / radius),
+                        scrambleText: {
+                            text: c.dataset.content || '',
+                            chars: scrambleChars,
+                            speed
+                        },
+                        ease: 'none'
+                    });
+                }
+            });
+        };
 
-    const el = rootRef.current;
-    el.addEventListener('pointermove', handleMove);
+        const el = rootRef.current;
+        el.addEventListener('pointermove', handleMove);
 
-    return () => {
-      el.removeEventListener('pointermove', handleMove);
-      split.revert();
-    };
-  }, [radius, duration, speed, scrambleChars]);
+        return () => {
+            el.removeEventListener('pointermove', handleMove);
+            split.revert();
+        };
+    }, [radius, duration, speed, scrambleChars]);
 
-  return (
-    <div
-      ref={rootRef}
-      className={`m-[7vw] max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] text-white ${className}`}
-      style={style}
-    >
-      <p>{children}</p>
-    </div>
-  );
+    const textColor = theme === 'light' ? 'text-black' : 'text-white';
+    const bgColor = theme === 'light' ? 'bg-white' : 'bg-transparent';
+
+    return (
+        <div
+            ref={rootRef}
+            className={`m-[7vw] max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] ${textColor} ${bgColor} ${className}`}
+            style={style}
+        >
+            <p>{children}</p>
+        </div>
+    );
 };
 
 export default ScrambledText;

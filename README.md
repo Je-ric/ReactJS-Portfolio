@@ -42,7 +42,7 @@ npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npm install tailwindcss class-variance-authority tailwind-variants lucide-react @radix-ui/react-slot
 npm install gsap
 npm install @react-three/drei @react-three/fiber three
-
+npm install @gsap/react
 
 npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
 
