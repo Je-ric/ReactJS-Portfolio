@@ -3,22 +3,27 @@
 import { Component } from "react"
 import { FaLightbulb, FaHandsHelping, FaUser, FaCode } from "react-icons/fa"
 
-
 class About extends Component {
   constructor(props) {
     super(props)
-    this.state = { visitCount: 0 }
+    this.state = { 
+      activeValue: null 
+    }
   }
 
   componentDidMount() {
-    const visits = localStorage.getItem("aboutVisits") || 0
-    const newVisitCount = Number.parseInt(visits) + 1
-    localStorage.setItem("aboutVisits", newVisitCount)
-    this.setState({ visitCount: newVisitCount })
+    console.log('About component mounted')
+  }
+
+  handleValueClick = (value) => { // counter HAHAHAHAHA
+    this.setState({ 
+      activeValue: this.state.activeValue === value ? null : value 
+    })
+    console.log('Core value clicked:', value)
   }
 
   render() {
-    const { visitCount } = this.state
+    const { activeValue } = this.state
 
     const coreValues = [
       {
@@ -61,10 +66,6 @@ class About extends Component {
     return (
       <section id="about" className="min-h-screen max-w-7xl mx-auto px-4 py-12 my-12 flex flex-col gap-12">
 
-        <p className="text-lg text-muted-foreground text-center">
-          Visit #{visitCount}
-        </p>
-
 
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
           <div className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72">
@@ -105,7 +106,10 @@ class About extends Component {
           {coreValues.map((value, idx) => (
             <div
               key={idx}
-              className="group flex flex-col gap-2 p-4 border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl"
+              onClick={() => this.handleValueClick(value.title)}
+              className={`group flex flex-col gap-2 p-4 border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl cursor-pointer ${
+                activeValue === value.title ? 'border-purple-500/70 bg-purple-500/10' : ''
+              }`}
             >
               <div className="flex items-center gap-3">
                 <div className={`value-icon w-6 h-6 text-lg bg-clip-text text-transparent bg-gradient-to-r ${value.gradient}`}>

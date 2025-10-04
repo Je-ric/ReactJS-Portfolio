@@ -3,16 +3,16 @@ import { useState } from "react"
 import { FiMenu, FiX, FiMoon, FiSun } from "react-icons/fi"
 import { useTheme } from "./ThemeProvider"
 
-const Navigation = ({ currentSection, onSectionChange }) => {
+const Navigation = ({ currentSection, onSectionChange }) => { // Props
   const { theme, toggleTheme } = useTheme()
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false) // state
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId) => { // event handlers
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
       onSectionChange(sectionId)
-      setMenuOpen(false) // close on mobile
+      setMenuOpen(false) 
     }
   }
 

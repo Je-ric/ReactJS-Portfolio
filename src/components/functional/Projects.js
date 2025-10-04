@@ -3,8 +3,12 @@
 import { useState } from "react"
 import { FaGithub } from "react-icons/fa"
 
-const ProjectCard = ({ project }) => (
-  <div className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-gray-600 hover:border-cyan-500 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between">
+// Props: ProjectCard receives project data (props)
+const ProjectCard = ({ project, onProjectClick }) => (
+  <div 
+    className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-gray-600 hover:border-cyan-500 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
+    onClick={() => onProjectClick(project)}
+  >
 
     {project.image ? (
       <div className="w-full h-48 md:h-56 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200">
@@ -31,7 +35,7 @@ const ProjectCard = ({ project }) => (
           <span
             key={idx}
             className="proj-pill px-3 py-1 text-gray-200 border border-green-500 rounded-full text-xs md:text-sm cursor-default
-             transition-transform duration-200 hover:-translate-y-1"
+                      transition-transform duration-200 hover:-translate-y-1"
           >
             {tech}
           </span>
@@ -52,7 +56,9 @@ const ProjectCard = ({ project }) => (
   </div>
 )
 
-const Projects = () => {
+const Projects = () => { 
+  // State: Filter state for project filtering
+  const [selectedFilter, setSelectedFilter] = useState("all")
   const [projects] = useState([
     {
       id: 1,
@@ -104,17 +110,61 @@ const Projects = () => {
     },
   ])
 
+  // Event handling: Filter change handler
+  const handleFilterChange = (filter) => {
+    setSelectedFilter(filter)
+    console.log('Filter changed to:', filter)
+  }
+
+  // Event handling: Project click handler
+  const handleProjectClick = (project) => {
+    console.log('Project clicked:', project.title)
+  }
+
+  // filter based sa selectedFilter
+  const filteredProjects = selectedFilter === "all" 
+    ? projects 
+    : projects.filter(project => 
+        project.technologies.some(tech => 
+          tech.toLowerCase().includes(selectedFilter.toLowerCase())
+        )
+      )
+
+  const filterOptions = ["all", "java", "php", "html", "css", "javascript", "mysql", "ajax"]
+
   return (
     <section id="projects" className="min-h-screen py-12 my-12 px-4 md:px-8 lg:px-12">
       <div className="container mx-auto">
-        <h2 className="font-bold mb-6 pb-6 text-center">A few of my personal and academic projects where I’m practicing coding, experimenting with new tools,
+        <h2 className="font-bold mb-6 pb-6 text-center">A few of my personal and academic projects where I'm practicing coding, experimenting with new tools,
           and improving my development skills.
           You can see the technologies I used and view the code on GitHub.
         </h2>
+        
+        {/* Filter buttons */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {filterOptions.map((filter) => (
+            <button
+              key={filter}
+              onClick={() => handleFilterChange(filter)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                selectedFilter === filter
+                  ? 'bg-cyan-500 text-white shadow-lg'
+                  : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+              }`}
+            >
+              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+            </button>
+          ))}
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Props */}
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {/* Props: Passing project data and click handler to ProjectCard */}
+          {filteredProjects.map((project) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              onProjectClick={handleProjectClick}
+            />
           ))}
         </div>
       </div>

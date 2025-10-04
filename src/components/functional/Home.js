@@ -1,9 +1,21 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 
 function Home() {
+  const [visitCount, setVisitCount] = useState(0)   // State
+
   useEffect(() => {
+    // Event handling: Keyboard shortcuts
     function handleShortcut(event) {
+      if (event.ctrlKey && event.key === 'h') {
+        console.log('Home shortcut triggered')
+      }
     }
+
+    // State: Initialize visit count from localStorage
+    const visits = localStorage.getItem("homeVisits") || 0
+    const newVisitCount = Number.parseInt(visits) + 1
+    localStorage.setItem("homeVisits", newVisitCount)
+    setVisitCount(newVisitCount)
 
     window.addEventListener("keydown", handleShortcut)
     return () => window.removeEventListener("keydown", handleShortcut)
@@ -15,7 +27,8 @@ function Home() {
       className="relative z-10 py-10 md:py-16 lg:py-20 px-4 md:px-8"
     >
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
-        {/* Left Column: Text */}
+
+        {/* ------------------------------------------------------------ */}
         <div className="flex-1 text-center lg:text-left space-y-6 lg:space-y-8">
           <p className="hello font-mono text-sm mb-4"> {'>_ HELLO_WORLD.EXECUTE()'}</p>
           <h1 className="text-7xl md:text-8xl font-bold">
@@ -46,18 +59,13 @@ function Home() {
               Get in Touch
             </a>
           </div>
-
-
-
-
-
         </div>
 
 
+        {/* ------------------------------------------------------------ */}
         <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-xl">
           <div className="gradient-border">
             <div className="code-window bg-[#091121]">
-              {/* Window Header */}
               <div className="window-header flex items-center gap-2 px-4 py-2 bg-[#1e293b]">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -69,7 +77,6 @@ function Home() {
                 </span>
               </div>
 
-              {/* Code Body */}
               <pre className="p-6 overflow-x-auto font-mono text-sm w-full">
                 <code>
                   <span className="token keyword">const</span>{" "}
@@ -183,6 +190,9 @@ function Home() {
                   <br />
                   <span className="token punctuation">&#125;</span>
                   <span className="token punctuation">;</span>
+                  <br />
+                  <span className="token property">visitCount<span className="token punctuation">:</span>{" "}</span>
+                  <span className="token boolean">#{visitCount}</span>
                 </code>
               </pre>
 
@@ -190,7 +200,6 @@ function Home() {
             </div>
           </div>
         </div>
-
 
 
       </div>

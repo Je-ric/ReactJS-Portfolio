@@ -4,14 +4,19 @@ import { Component } from "react"
 import { FaEnvelope, FaGithub, FaCodepen, FaFacebook, FaInstagram, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
 
 class Contact extends Component {
-  state = {
-    formData: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
-    errors: {},
+  constructor(props) {
+    super(props)
+    // State: Form data and validation errors
+    this.state = {
+      formData: {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      },
+      errors: {},
+      isSubmitting: false, // Additional state para sa submission
+    }
   }
 
   handleInputChange = (e) => {
@@ -45,11 +50,18 @@ class Contact extends Component {
       this.setState({ errors })
       return
     }
-    this.setState({
-      formData: { name: "", email: "", subject: "", message: "" },
-      errors: {},
-    })
-    alert("Thank you! Your message has been received.")
+    
+    // Event handling: Simulate form submission with loading state
+    this.setState({ isSubmitting: true })
+    
+    setTimeout(() => {
+      this.setState({
+        formData: { name: "", email: "", subject: "", message: "" },
+        errors: {},
+        isSubmitting: false,
+      })
+      alert("Thank you! Your message has been received.")
+    }, 1500)
   }
 
   handleReset = () => {
@@ -68,7 +80,7 @@ class Contact extends Component {
   }
 
   render() {
-    const { formData, errors } = this.state
+    const { formData, errors, isSubmitting } = this.state
 
     const contactMethods = [
       { icon: <FaEnvelope className="text-white w-6 h-6" />, name: "Email", username: "Jeric Dela Cruz", link: "mailto:jericjdelacruz@gmail.com" },
@@ -176,17 +188,16 @@ class Contact extends Component {
                 <div className="flex space-x-4">
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     onClick={() => this.handleClick("Send")}
                     onDoubleClick={() => this.handleDoubleClick("Send")}
-                    className="flex-1 px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
+                    className={`flex-1 px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
              bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-500 
              shadow-lg shadow-red-300 hover:shadow-xl hover:scale-105 
-             active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
+             active:scale-95 active:shadow-md transition-all duration-300 ease-in-out
+             ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
-                    {/* flex-1 py-3 rounded-lg text-white bg-gradient-to-r from-yellow-400 to-red-500 hover:from-yellow-300 hover:to-red-400 transition-all */}
-
-
-                    Send
+                    {isSubmitting ? 'Sending...' : 'Send'}
                   </button>
                   <button
                     type="button"
