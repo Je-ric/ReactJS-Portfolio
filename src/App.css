@@ -199,9 +199,13 @@
 
 
 
+.contact-form{
+	background-color: none;
+}
 
-
-
+.dark .contact-form{
+	background-color: #1e293b;
+}
 
 .proj-desc{
 	color: #111;

@@ -22,7 +22,7 @@ class About extends Component {
     return (
       <section
         id="about"
-        className="min-h-screen flex items-center justify-center px-4 md:px-8 py-12"
+        className="min-h-screen flex max-w-7xl mx-auto items-center justify-center px-4 md:px-8 py-12"
       >
         <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-10">
 
