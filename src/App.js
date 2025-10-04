@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { ThemeProvider } from "./components/ThemeProvider";
 import "./App.css"
+import "./index.css"
 
 import Navigation from "./components/Navigation";
-import Dashboard from "./components/functional/Dashboard";
+import Home from "./components/functional/Home";
 import Projects from "./components/functional/Projects";
 import About from "./components/class/About";
 import Contact from "./components/class/Contact";
@@ -14,7 +15,7 @@ import Mouse from "./components/Mouse";
 import GlobalBG from "./components/ui/GlobalBG";
 
 function App() {
-  const [currentSection, setCurrentSection] = useState("dashboard");
+  const [currentSection, setCurrentSection] = useState("home");
   const [showPreloader, setShowPreloader] = useState(true);
 
   // IntersectionObserver for active section tracking
@@ -30,7 +31,7 @@ function App() {
       { threshold: 0.5 }
     );
 
-    const sections = ["dashboard", "projects", "about", "contact"];
+    const sections = ["home", "projects", "about", "contact"];
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) observer.observe(element);
@@ -67,7 +68,7 @@ function App() {
 
         {/*  */}
         <main className="pt-20">
-          <Dashboard />
+          <Home />
           <About />
           <Projects />
           <Contact />

@@ -26,6 +26,7 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 0 72% 51%;
   --radius: 0.5rem;
+
 }
 
 .dark {
@@ -50,61 +51,25 @@
   --ring: 0 72% 51%;
 }
 
-/* Baymax Custom Animations */
-@keyframes baymax-float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+
+
+.glass-card {
+  background: hsl(var(--background) / 0.7); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 0.08);
+  transition: background 0.3s, border-color 0.3s;
+  padding: 2rem;
 }
 
-@keyframes baymax-glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
-  }
+.glass-card:hover {
+  background: hsl(var(--background) / 0.85);
+  border-color: hsl(var(--primary) / 0.4);
 }
 
-@keyframes baymax-inflate {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
-.baymax-float {
-  animation: baymax-float 3s ease-in-out infinite;
-}
-
-.baymax-glow {
-  animation: baymax-glow 2s ease-in-out infinite;
-}
-
-.baymax-inflate {
-  animation: baymax-inflate 4s ease-in-out infinite;
-}
-
-.baymax-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.dark .baymax-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 * {
   border-color: hsl(var(--border));

@@ -12,12 +12,12 @@ const Navigation = ({ currentSection, onSectionChange }) => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
       onSectionChange(sectionId)
-      setMenuOpen(false) // close menu on mobile
+      setMenuOpen(false) // close on mobile
     }
   }
 
   const navItems = [
-    { id: "dashboard", label: "Dashboard" },
+    { id: "home", label: "Home" },
     { id: "projects", label: "Projects" },
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
@@ -27,7 +27,9 @@ const Navigation = ({ currentSection, onSectionChange }) => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 bg-primary rounded-full baymax-glow"></div>
+          <h3 className="text-3xl font-bold text-primary tracking-wider">
+            {"</>"}
+          </h3>
           <span className="font-bold text-xl">Portfolio</span>
         </div>
 
