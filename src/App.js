@@ -14,6 +14,7 @@ import BackToTop from "./components/BackToTop";
 import Mouse from "./components/Mouse";
 import GlobalBG from "./components/ui/GlobalBG";
 import DualMarquee from "./components/layout/DualMarquee";
+import Footer from "./components/Footer";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -86,6 +87,7 @@ function App() {
         <BackToTop />
       </div>
 
+      <Footer />
   
     </ThemeProvider>
     </>

@@ -79,7 +79,7 @@ class About extends Component {
           <div className="flex-1 flex flex-col gap-6 min-w-[250px]">
 
             {/* "Who Am I" card */}
-            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-blue-400 transition-all shadow-md hover:shadow-lg">
+            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-blue-400 transition-all shadow-md hover:shadow-lg bg-background/80 backdrop-blur-md">
               <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Who Am I
               </h3>
@@ -89,7 +89,7 @@ class About extends Component {
             </div>
 
             {/* "Motto" card */}
-            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-yellow-400 transition-all shadow-md hover:shadow-lg">
+            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-yellow-400 transition-all shadow-md hover:shadow-lg bg-background/80 backdrop-blur-md">
               <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
                 Motto
               </h3>
@@ -109,7 +109,7 @@ class About extends Component {
             <div
               key={idx}
               onClick={() => this.handleValueClick(value.title)}
-              className={`group flex flex-col gap-2 p-4 border border-cyan-500/70 hover:border-purple-400 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl cursor-pointer ${
+              className={`group flex flex-col gap-2 p-4 border border-cyan-500/70 hover:border-purple-400 transition-all shadow-md hover:shadow-lg bg-background/80 backdrop-blur-md rounded-xl cursor-pointer ${
                 activeValue === value.title ? 'border-purple-500/70 bg-purple-500/10' : ''
               }`}
             >
@@ -133,7 +133,7 @@ class About extends Component {
         <h3 className="text-2xl font-bold text-left mt-6">
           Hobbies & Interests
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 z-20">
           {hobbies.map((hobby, idx) => (
             <div
               key={idx}

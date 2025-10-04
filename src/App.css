@@ -248,6 +248,17 @@
 	color: #fff;
 }
 
+.hobby{
+	backdrop-filter: blur(2px) saturate(150%);
+    -webkit-backdrop-filter: blur(2px) saturate(150%);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .hobby{
+	background-color: transparent;
+}
+
+
 .hobby,
 .value-icon{
 	color: #111;
