@@ -31,7 +31,7 @@ class About extends Component {
             <img
               src="/src/profile.png"
               alt="About Me"
-              className="w-56 sm:w-64 md:w-72 lg:w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-cover rounded-2xl shadow-xl"
+              className="w-64 z-20 sm:w-64 md:w-72 lg:w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-cover rounded-2xl shadow-xl"
             />
           </div>
 

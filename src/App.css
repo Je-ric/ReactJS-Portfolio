@@ -195,3 +195,21 @@
 .dark .hello{
 	color: cyan;
 }
+
+
+
+
+
+
+
+
+
+
+.group{
+	z-index: 20;
+	/* background: #091121; */
+	background-color: rgba(17, 24, 39, 0.8);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+}
+
