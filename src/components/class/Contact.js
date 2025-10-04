@@ -106,13 +106,15 @@ class Contact extends Component {
                     rel="noopener noreferrer"
                     onClick={() => this.handleClick(method.name)}
                     onDoubleClick={() => this.handleDoubleClick(method.name)}
-                    className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-gray-700 hover:border-yellow-500/50 transition-all shadow-md hover:shadow-lg cursor-pointer"
+                    className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-orange-500 hover:border-cyan-500 transition-all shadow-md hover:shadow-lg cursor-pointer"
                   >
                     <div className="flex-shrink-0 p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 bg-opacity-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                      {method.icon}
+                      <span className="text-white w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 group-hover:text-cyan-400">
+                        {method.icon}
+                      </span>
                     </div>
                     <div className="flex flex-col">
-                      <h3 className="text-base sm:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 group-hover:from-yellow-300 group-hover:to-red-400 transition-all">
+                      <h3 className="text-base sm:text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 group-hover:from-cyan-400 group-hover:to-blue-500 transition-all">
                         {method.name}
                       </h3>
                       <span className="text-gray-200 text-sm sm:text-base">{method.username}</span>
@@ -130,16 +132,19 @@ class Contact extends Component {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-background/80 backdrop-blur-md rounded-xl border border-gray-700 hover:border-yellow-500/50 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-transform duration-300 hover:translate-x-1 hover:-translate-y-1"
+                    className="group p-3 bg-background/80 backdrop-blur-md rounded-xl border border-orange-500 hover:border-cyan-500 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-all duration-300 transform hover:translate-x-1 hover:-translate-y-1"
                   >
-                    {item.icon}
+                    <div className="flex items-center justify-center w-full h-full transition-colors duration-300 group-hover:text-cyan-500">
+                      {item.icon}
+                    </div>
                   </a>
                 ))}
               </div>
+
             </div>
 
             {/* Right Column: Form */}
-            <div className="contact-form z-20 backdrop-blur-md p-6 rounded-2xl border border-gray-700 shadow-md">
+            <div className="contact-form backdrop-blur-md p-6 rounded-2xl border border-gray-700 shadow-md">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               <form onSubmit={this.handleSubmit} className="space-y-4">
                 {["name", "email", "subject"].map((field) => (
@@ -177,10 +182,10 @@ class Contact extends Component {
              bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-500 
              shadow-lg shadow-red-300 hover:shadow-xl hover:scale-105 
              active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
->
+                  >
                     {/* flex-1 py-3 rounded-lg text-white bg-gradient-to-r from-yellow-400 to-red-500 hover:from-yellow-300 hover:to-red-400 transition-all */}
 
-                    
+
                     Send
                   </button>
                   <button
