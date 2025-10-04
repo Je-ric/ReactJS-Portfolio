@@ -44,6 +44,7 @@ npm install gsap
 npm install @react-three/drei @react-three/fiber three
 npm install @gsap/react
 npm install react-icons
+npm install gh-pages --save-dev
 
 npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
 
