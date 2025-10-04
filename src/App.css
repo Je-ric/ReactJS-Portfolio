@@ -52,51 +52,6 @@
 	}
 }
 
-/* Section Title */
-.section-title {
-	text-align: center;
-	margin: auto;
-	padding: 2rem;
-	width: fit-content;
-	position: sticky;
-	top: 50vh;
-}
-
-.section-title-main {
-	color: white;
-	font-size: 8rem;
-	margin-bottom: 3rem;
-	letter-spacing: 0.1rem;
-	text-transform: uppercase;
-	font-family: 'Fugaz One', sans-serif;
-}
-
-.section-title-sub {
-	font-size: 11rem;
-	text-align: end;
-	letter-spacing: 0.1rem;
-	text-transform: uppercase;
-	font-family: 'Fugaz One', sans-serif;
-	-webkit-text-fill-color: transparent;
-	-webkit-text-stroke-width: 3px;
-	-webkit-text-stroke-color: hsl(196, 100%, 56%);
-}
-
-@media screen and (max-width: 700px) {
-	.section-title-main {
-		font-size: 5rem;
-	}
-	.section-title-sub {
-		font-size: 6rem;
-	}
-	.section-title {
-		position: relative;
-		top: 0;
-	}
-}
-
-
-
 /* Glow Box */
 
 .glow-box-parent {
@@ -212,5 +167,68 @@
 	.glow-box-title {
 		font-size: 0.75rem;
 		padding: 0.15rem 0.5rem;
+	}
+}
+
+
+
+.dual-marquee {
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.marquee {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.marquee span {
+	display: inline-block;
+	padding-right: 2rem;
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-family: 'Fugaz One', sans-serif;
+	letter-spacing: 0.1rem;
+}
+
+.word1 {
+	color: white;
+}
+
+.word2 {
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: hsl(196, 100%, 56%);
+}
+
+/* Animation container */
+.marquee-content {
+	display: flex;
+	animation: marquee-left 30s linear infinite;
+}
+
+.marquee-bottom .marquee-content {
+	animation: marquee-right 30s linear infinite;
+}
+
+/* Keyframes */
+@keyframes marquee-left {
+	0%   { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+	0%   { transform: translateX(-50%); }
+	100% { transform: translateX(0); }
+}
+
+/* Responsive */
+@media screen and (max-width: 700px) {
+	.marquee span {
+		font-size: 1rem;
 	}
 }

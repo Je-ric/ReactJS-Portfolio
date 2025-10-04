@@ -2,8 +2,8 @@
 
 import { Component } from "react"
 import ScrambledText from '../ui/ScrambledText';
-import SectionTitle from '../layout/SectionTitle';
 import GlowBox from '../layout/GlowingBox';
+import DualMarquee from '../layout/DualMarquee';
 
 import { FaStar, FaHeart } from 'react-icons/fa';
 import { MdRocket } from 'react-icons/md';
@@ -50,10 +50,10 @@ class About extends Component {
         <div className="container mx-auto">
           <div className="text-center mb-12">
             {/* <SectionTitle text="About Me" /> */}
-            <SectionTitle
-              title="About"
-              subTitle="Me"
-            />
+
+           <DualMarquee word1="ABOUT" word2="ME" />
+
+
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               From healthcare companion to full-stack developer. Visit #{visitCount}
             </p>

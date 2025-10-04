@@ -1,21 +1,6 @@
 "use client"
-
-/*
-  File: functional/Projects.js
-  What it is: A functional component that lists projects and lets the user filter them.
-  How it works: Uses `useState` to track the selected filter and a local array of `projects`.
-  Demonstrates props by passing `project` and `onView` to the child component `ProjectCard`.
-  Demonstrates event handling via clicks on filter buttons, technology chips, and "View Project".
-
-  Concepts demonstrated:
-  - Functional components (`Projects`, `ProjectCard`)
-  - Props: `ProjectCard` receives `project` data and `onView` callback
-  - State: `selectedFilter` controls which projects are shown
-  - Event handling: button `onClick` handlers for filtering and viewing
-*/
-
 import { useState } from "react"
-
+import DualMarquee from '../layout/DualMarquee';
 
 const ProjectCard = ({ project, onView }) => (
   <div className="project-card baymax-card p-6 rounded-lg">
@@ -90,6 +75,9 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen py-20 px-8">
+
+      <DualMarquee word1="MY" word2="PROJECTS" />
+
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>

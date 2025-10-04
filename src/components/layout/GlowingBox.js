@@ -1,5 +1,3 @@
-import React from 'react';
-
 const GlowBox = ({ color, icon: Icon, title, href }) => {
   const content = (
     <div
