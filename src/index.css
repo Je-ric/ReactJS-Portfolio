@@ -51,26 +51,6 @@
   --ring: 0 72% 51%;
 }
 
-
-
-.glass-card {
-  background: hsl(var(--background) / 0.7); 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid hsl(var(--border) / 0.5);
-  border-radius: 1rem;
-  box-shadow: 0 4px 24px 0 rgb(0 0 0 / 0.08);
-  transition: background 0.3s, border-color 0.3s;
-  padding: 2rem;
-}
-
-.glass-card:hover {
-  background: hsl(var(--background) / 0.85);
-  border-color: hsl(var(--primary) / 0.4);
-}
-
-
-
 * {
   border-color: hsl(var(--border));
 }
