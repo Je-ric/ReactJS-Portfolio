@@ -66,7 +66,7 @@ const Projects = () => {
       description: "Developed an engaging Java color-matching game featuring three levels of difficulty—easy, medium, and hard—each with varying numbers of dice and colors for betting. This project uses the power of Java Swing for visually appealing graphics.",
       technologies: ["Java"],
       github: "https://github.com/Je-ric",
-      image: "/img/colorgame.png",
+      image: process.env.PUBLIC_URL + "/img/colorgame.png",
     },
     {
       id: 2,
@@ -74,7 +74,7 @@ const Projects = () => {
       description: "Developed BeatStrum, an e-commerce website for musical instruments, using an object-oriented programming approach. The project features a user-friendly interface, categorized listings, and efficient product management.",
       technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL", "AJAX"],
       github: "https://github.com/Je-ric",
-      image: "/img/BeatStrum.png",
+      image: process.env.PUBLIC_URL + "/img/BeatStrum.png",
     },
     {
       id: 3,
@@ -82,7 +82,7 @@ const Projects = () => {
       description: "Developed a responsive website for the College of Business Administration and Accountancy (CBAA), emphasizing front-end development practices. The website effectively outlines the college's programs, courses, and faculty and staff while ensuring seamless viewing across various devices, enhancing user experience and accessibility.",
       technologies: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/Je-ric",
-      image: "/img/cbaa.png",
+      image: process.env.PUBLIC_URL + "/img/cbaa.png",
     },
     {
       id: 4,
@@ -90,7 +90,7 @@ const Projects = () => {
       description: "Built a Concert Reservation System using Object-Oriented Programming, featuring user-friendly interfaces for both administrators and attendees. Users can effortlessly browse available concerts, reserve specific seats, receive email notifications, utilize various payment methods, and easily cancel reservations.",
       technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL", "AJAX"],
       github: "https://github.com/Je-ric",
-      image: "/img/Concert.png",
+      image: process.env.PUBLIC_URL + "/img/Concert.png",
     },
     {
       id: 5,
@@ -98,7 +98,7 @@ const Projects = () => {
       description: "Introducing a comprehensive Student Portal system built on Object-Oriented Programming principles. Seamlessly manage grading systems, update student records, and empower administrators with efficient information modification, all through intuitive interfaces tailored for both students and administrators.",
       technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL"],
       github: "https://github.com/Je-ric",
-      image: "/img/StudentPortal.png",
+      image: process.env.PUBLIC_URL + "/img/StudentPortal.png",
     },
     {
       id: 6,
@@ -106,7 +106,7 @@ const Projects = () => {
       description: "Designed a dynamic job application form with interactive fields allowing applicants to easily modify and update their submissions. Built functionality for administrators to review and manage applications, including the ability to delete redundant entries, simplifying the recruitment process effectively.",
       technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL"],
       github: "https://github.com/Je-ric",
-      image: "/img/jobs.png",
+      image: process.env.PUBLIC_URL + "/img/jobs.png",
     },
   ])
 

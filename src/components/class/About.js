@@ -53,14 +53,14 @@ class About extends Component {
     ]
 
     const hobbies = [
-      { imgSrc: "/img/hobby_interest/listening.png", title: "Listening to Music" },
-      { imgSrc: "/img/hobby_interest/scifi.png", title: "Science Fiction" },
-      { imgSrc: "/img/hobby_interest/drums.png", title: "Playing Drums" },
-      { imgSrc: "/img/hobby_interest/ecommerce.png", title: "E-Commerce" },
-      { imgSrc: "/img/hobby_interest/watch.png", title: "Watching Movies" },
-      { imgSrc: "/img/hobby_interest/nature.png", title: "Nature" },
-      { imgSrc: "/img/hobby_interest/games.png", title: "Online Games" },
-      { imgSrc: "/img/hobby_interest/browse.png", title: "Browsing Internet" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/listening.png", title: "Listening to Music" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/scifi.png", title: "Science Fiction" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/drums.png", title: "Playing Drums" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/ecommerce.png", title: "E-Commerce" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/watch.png", title: "Watching Movies" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/nature.png", title: "Nature" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/games.png", title: "Online Games" },
+      { imgSrc: process.env.PUBLIC_URL + "/img/hobby_interest/browse.png", title: "Browsing Internet" },
     ];
 
     return (
