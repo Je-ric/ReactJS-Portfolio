@@ -31,22 +31,40 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run eject`
 
+# Uninstall old versions (if any)
 npm uninstall tailwindcss postcss autoprefixer
+
+# Install TailwindCSS v3 with PostCSS and Autoprefixer
 npm install -D tailwindcss@3 postcss autoprefixer
+
+# Initialize TailwindCSS configuration
 npx tailwindcss init -p
 
+# Reinstall TailwindCSS with PostCSS and Autoprefixer
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
+
+# Add ShadCN SplitText component
 npx shadcn@latest add https://reactbits.dev/r/SplitText-JS-TW
+
+# Install latest TailwindCSS, PostCSS, and Autoprefixer
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+# Install additional utilities and UI libraries
 npm install tailwindcss class-variance-authority tailwind-variants lucide-react @radix-ui/react-slot
+
+# Install animation and 3D libraries
 npm install gsap
 npm install @react-three/drei @react-three/fiber three
 npm install @gsap/react
+
+# Install icons and deployment tool
 npm install react-icons
 npm install gh-pages --save-dev
 
+# Add ShadCN ScrambledText component
 npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
+
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
