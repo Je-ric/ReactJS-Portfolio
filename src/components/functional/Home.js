@@ -25,27 +25,27 @@ function Home() {
             I'm a BSIT student at Central Luzon State University and an aspiring full-stack developer.
           </p>
 
-<div className="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start">
-  <a
-    href="#projects"
-    className="px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
-               bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
-               shadow-lg shadow-yellow-300 hover:shadow-xl hover:scale-105 
-               active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
-  >
-    My Works
-  </a>
+          <div className="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start">
+            <a
+              href="#projects"
+              className="px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
+                bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 
+                shadow-lg shadow-yellow-300 hover:shadow-xl hover:scale-105 
+                active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
+            >
+              My Works
+            </a>
 
-  <a
-    href="#contact"
-    className="px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
-               bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
-               shadow-lg shadow-indigo-300 hover:shadow-xl hover:scale-105 
-               active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
-  >
-    Get in Touch
-  </a>
-</div>
+            <a
+              href="#contact"
+              className="px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
+                bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 
+                shadow-lg shadow-indigo-300 hover:shadow-xl hover:scale-105 
+                active:scale-95 active:shadow-md transition-all duration-300 ease-in-out"
+            >
+              Get in Touch
+            </a>
+          </div>
 
 
 

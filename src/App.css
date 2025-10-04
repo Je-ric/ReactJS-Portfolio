@@ -203,7 +203,28 @@
 
 
 
+.proj-desc{
+	color: #111;
+}
 
+.dark .proj-desc{
+	color: #fff;
+}
+
+.proj-pill{
+	background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+
+.proj-card{
+	background-color: transparent;
+}
+
+.dark .proj-card{
+	background-color: #091121;
+}
 
 .group{
 	z-index: 20;

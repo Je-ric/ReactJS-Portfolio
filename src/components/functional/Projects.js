@@ -1,117 +1,124 @@
 "use client"
-import { useState } from "react"
 
-const ProjectCard = ({ project, onView }) => (
-  <div className="project-card baymax-card p-6 rounded-lg">
-    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-    <p className="text-muted-foreground mb-4">{project.description}</p>
-    <div className="flex flex-wrap gap-2 mb-4">
-      {project.technologies.map((tech, index) => (
-        <span
-          key={index}
-          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors"
-          onClick={() => console.log("[v0] Technology clicked:", tech)}
-        >
-          {tech}
-        </span>
-      ))}
+import { useState } from "react"
+import { FaGithub } from "react-icons/fa"
+
+const ProjectCard = ({ project }) => (
+  <div className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-gray-600 hover:border-cyan-500 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between">
+    {/* Project image placeholder */}
+    {project.image ? (
+      <div className="w-full h-48 md:h-56 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
+    ) : (
+      <div className="w-full h-40 mb-4 rounded-lg overflow-hidden bg-gray-300 flex items-center justify-center text-gray-500 text-sm">
+        Project Image
+      </div>
+    )}
+
+    {/* Card Body */}
+    <div>
+      <h3 className="text-xl font-semibold text-cyan-500 mb-2">{project.title}</h3>
+      <p className="proj-desc text-muted-foreground text-justify mb-4 text-sm md:text-base">{project.description}</p>
     </div>
-    <button
-      onClick={() => onView(project)}
-      className="baymax-button bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90"
-    >
-      View Project
-    </button>
+
+    {/* Technologies + GitHub below */}
+    <div className="mt-4 flex flex-col gap-3 items-start">
+      <div className="flex flex-wrap gap-2">
+        {project.technologies.map((tech, idx) => (
+          <span
+            key={idx}
+            className="proj-pill px-3 py-1 text-gray-200 border border-pink-500 rounded-full text-xs md:text-sm cursor-default
+             transition-transform duration-200 hover:-translate-y-1"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <a
+        href={project.github || "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="p-2 rounded-full bg-gray-800 text-white text-base md:text-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+        aria-label="GitHub Repository"
+      >
+        <FaGithub />
+      </a>
+    </div>
+
   </div>
 )
 
 const Projects = () => {
-  // State controls active filter; changes re-compute `filteredProjects`
-  const [selectedFilter, setSelectedFilter] = useState("all")
   const [projects] = useState([
     {
       id: 1,
-      title: "Healthcare Management System",
-      description: "A comprehensive system for managing patient data and appointments.",
-      technologies: ["React", "Node.js", "MongoDB", "Healthcare"],
-      category: "healthcare",
+      title: "Color Game",
+      description: "Developed an engaging Java color-matching game featuring three levels of difficulty—easy, medium, and hard—each with varying numbers of dice and colors for betting. This project uses the power of Java Swing for visually appealing graphics.",
+      technologies: ["Java"],
+      github: "https://github.com/Je-ric",
+      image: "/img/colorgame.png",
     },
     {
       id: 2,
-      title: "AI Diagnostic Tool",
-      description: "Machine learning application for medical diagnosis assistance.",
-      technologies: ["Python", "TensorFlow", "React", "AI"],
-      category: "ai",
+      title: "BeatStrum",
+      description: "Developed BeatStrum, an e-commerce website for musical instruments, using an object-oriented programming approach. The project features a user-friendly interface, categorized listings, and efficient product management.",
+      technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL", "AJAX"],
+      github: "https://github.com/Je-ric",
+      image: "/img/BeatStrum.png",
     },
     {
       id: 3,
-      title: "Personal Care App",
-      description: "Mobile application for tracking personal health metrics.",
-      technologies: ["React Native", "Firebase", "Healthcare"],
-      category: "mobile",
+      title: "CBAA Front-End Website",
+      description: "Developed a responsive website for the College of Business Administration and Accountancy (CBAA), emphasizing front-end development practices. The website effectively outlines the college's programs, courses, and faculty and staff while ensuring seamless viewing across various devices, enhancing user experience and accessibility.",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/Je-ric",
+      image: "/img/cbaa.png",
     },
     {
       id: 4,
-      title: "Medical Research Platform",
-      description: "Platform for collaborative medical research and data analysis.",
-      technologies: ["Vue.js", "Python", "PostgreSQL", "Research"],
-      category: "web",
+      title: "Concert Reservation System",
+      description: "Built a Concert Reservation System using Object-Oriented Programming, featuring user-friendly interfaces for both administrators and attendees. Users can effortlessly browse available concerts, reserve specific seats, receive email notifications, utilize various payment methods, and easily cancel reservations.",
+      technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL", "AJAX"],
+      github: "https://github.com/Je-ric",
+      image: "/img/Concert.png",
+    },
+    {
+      id: 5,
+      title: "Student Portal",
+      description: "Introducing a comprehensive Student Portal system built on Object-Oriented Programming principles. Seamlessly manage grading systems, update student records, and empower administrators with efficient information modification, all through intuitive interfaces tailored for both students and administrators.",
+      technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL"],
+      github: "https://github.com/Je-ric",
+      image: "/img/StudentPortal.png",
+    },
+    {
+      id: 6,
+      title: "Job Application Form",
+      description: "Designed a dynamic job application form with interactive fields allowing applicants to easily modify and update their submissions. Built functionality for administrators to review and manage applications, including the ability to delete redundant entries, simplifying the recruitment process effectively.",
+      technologies: ["HTML", "CSS", "PHP", "JavaScript", "MySQL"],
+      github: "https://github.com/Je-ric",
+      image: "/img/jobs.png",
     },
   ])
 
-  // Event handler passed to child via props, demonstrating parent-child communication
-  const handleProjectView = (project) => {
-    console.log("[v0] Project viewed:", project.title)
-    alert(
-      `Viewing project: ${project.title}\n\nDescription: ${project.description}\n\nTechnologies: ${project.technologies.join(", ")}`,
-    )
-  }
-
-  const filteredProjects =
-    selectedFilter === "all" ? projects : projects.filter((project) => project.category === selectedFilter)
-
-  const categories = ["all", "healthcare", "ai", "mobile", "web"]
-
   return (
-    <section id="projects" className="min-h-screen py-20 px-8">
-
+    <section id="projects" className="min-h-screen py-20 px-4 md:px-8 lg:px-12">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Healthcare-focused applications and tools designed to help people live healthier lives.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap justify-center gap-4 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => {
-                setSelectedFilter(category)
-                console.log("[v0] Filter changed to:", category)
-              }}
-              className={`px-4 py-2 rounded-full transition-all ${selectedFilter === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary hover:bg-secondary/80"
-                }`}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
+        <h2 className="font-bold mb-6 pb-6 text-center">A few of my personal and academic projects where I’m practicing coding, experimenting with new tools, 
+          and improving my development skills. 
+          You can see the technologies I used and view the code on GitHub.
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Props */}
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} onView={handleProjectView} />
-          ))}
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No projects found for the selected category.</p>
-          </div>
-        )}
       </div>
     </section>
   )
