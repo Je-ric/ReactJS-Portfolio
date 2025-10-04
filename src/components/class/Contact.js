@@ -84,7 +84,7 @@ class Contact extends Component {
     ]
 
     return (
-      <section id="contact" className="min-h-screen max-w-7xl mx-auto py-20 px-8">
+      <section id="contact" className="min-h-screen max-w-7xl mx-auto px-4 py-12 my-12">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Left Column: Contact & Follow */}

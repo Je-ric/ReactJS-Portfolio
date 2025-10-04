@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa"
 
 const ProjectCard = ({ project }) => (
   <div className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-gray-600 hover:border-cyan-500 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between">
-    {/* Project image placeholder */}
+
     {project.image ? (
       <div className="w-full h-48 md:h-56 mb-4 rounded-lg overflow-hidden flex items-center justify-center bg-gray-200">
         <img
@@ -20,19 +20,17 @@ const ProjectCard = ({ project }) => (
       </div>
     )}
 
-    {/* Card Body */}
     <div>
       <h3 className="text-xl font-semibold text-cyan-500 mb-2">{project.title}</h3>
       <p className="proj-desc text-muted-foreground text-justify mb-4 text-sm md:text-base">{project.description}</p>
     </div>
 
-    {/* Technologies + GitHub below */}
     <div className="mt-4 flex flex-col gap-3 items-start">
       <div className="flex flex-wrap gap-2">
         {project.technologies.map((tech, idx) => (
           <span
             key={idx}
-            className="proj-pill px-3 py-1 text-gray-200 border border-pink-500 rounded-full text-xs md:text-sm cursor-default
+            className="proj-pill px-3 py-1 text-gray-200 border border-green-500 rounded-full text-xs md:text-sm cursor-default
              transition-transform duration-200 hover:-translate-y-1"
           >
             {tech}
@@ -107,10 +105,10 @@ const Projects = () => {
   ])
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-4 md:px-8 lg:px-12">
+    <section id="projects" className="min-h-screen py-12 my-12 px-4 md:px-8 lg:px-12">
       <div className="container mx-auto">
-        <h2 className="font-bold mb-6 pb-6 text-center">A few of my personal and academic projects where I’m practicing coding, experimenting with new tools, 
-          and improving my development skills. 
+        <h2 className="font-bold mb-6 pb-6 text-center">A few of my personal and academic projects where I’m practicing coding, experimenting with new tools,
+          and improving my development skills.
           You can see the technologies I used and view the code on GitHub.
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

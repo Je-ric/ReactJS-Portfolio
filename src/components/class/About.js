@@ -1,7 +1,8 @@
 "use client"
 
 import { Component } from "react"
-import { FaUser, FaLightbulb, FaHandsHelping } from "react-icons/fa"
+import { FaLightbulb, FaHandsHelping, FaUser, FaCode } from "react-icons/fa"
+
 
 class About extends Component {
   constructor(props) {
@@ -19,75 +20,134 @@ class About extends Component {
   render() {
     const { visitCount } = this.state
 
-    return (
-      <section
-        id="about"
-        className="min-h-screen flex max-w-7xl mx-auto items-center justify-center px-4 md:px-8 py-12"
-      >
-        <div className="w-full max-w-6xl flex flex-col lg:flex-row items-center gap-10">
+    const coreValues = [
+      {
+        icon: <FaCode className="w-6 h-6" />,
+        title: "Component-Based",
+        description: "I structure my projects with reusable, modular components to make development faster and more organized, which helps when scaling projects.",
+        gradient: "from-purple-400 to-pink-500"
+      },
+      {
+        icon: <FaUser className="w-6 h-6" />,
+        title: "User-Centered",
+        description: "I design and code with real users in mind, focusing on their experience and needs to build intuitive and accessible web interfaces.",
+        gradient: "from-purple-400 to-pink-500"
+      },
+      {
+        icon: <FaLightbulb className="w-6 h-6" />,
+        title: "Continuous Learning",
+        description: "I actively learn new technologies and best practices, experimenting with different tools and frameworks to improve my skills and stay updated.",
+        gradient: "from-purple-400 to-red-500"
+      },
+      {
+        icon: <FaHandsHelping className="w-6 h-6" />,
+        title: "Clean Code",
+        description: "I write readable, maintainable, and efficient code so that projects are easy to understand and extend in the future.",
+        gradient: "from-purple-400 to-red-500"
+      },
+    ]
 
-          {/* Left Column: Image */}
-          <div className="flex justify-center lg:justify-start w-full lg:w-1/3 flex-shrink-0">
+    const hobbies = [
+      { imgSrc: "/img/hobby_interest/listening.png", title: "Listening to Music" },
+      { imgSrc: "/img/hobby_interest/scifi.png", title: "Science Fiction" },
+      { imgSrc: "/img/hobby_interest/drums.png", title: "Playing Drums" },
+      { imgSrc: "/img/hobby_interest/ecommerce.png", title: "E-Commerce" },
+      { imgSrc: "/img/hobby_interest/watch.png", title: "Watching Movies" },
+      { imgSrc: "/img/hobby_interest/nature.png", title: "Nature" },
+      { imgSrc: "/img/hobby_interest/games.png", title: "Online Games" },
+      { imgSrc: "/img/hobby_interest/browse.png", title: "Browsing Internet" },
+    ];
+
+    return (
+      <section id="about" className="min-h-screen max-w-7xl mx-auto px-4 py-12 my-12 flex flex-col gap-12">
+
+        <p className="text-lg text-muted-foreground text-center">
+          Visit #{visitCount}
+        </p>
+
+
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
+          <div className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72">
             <img
               src="/src/profile.png"
-              alt="About Me"
-              className="w-64 z-20 sm:w-64 md:w-72 lg:w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-cover rounded-2xl shadow-xl"
+              alt="Profile"
+              className="w-full h-full object-cover rounded-xl shadow-xl relative z-20"
             />
           </div>
 
-          {/* Right Column: Info */}
-          <div className="flex-1 flex flex-col gap-6 w-full max-w-xl">
-            {/* Visit Count */}
-            <p className="text-lg text-muted-foreground text-center lg:text-left">
-              Visit #{visitCount}
-            </p>
+          <div className="flex-1 flex flex-col gap-6 min-w-[250px]">
 
-            {/* Who Am I */}
-            <div className="group p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 bg-opacity-20 flex items-center justify-center">
-                  <FaUser className="text-white w-6 h-6 lg:w-7 lg:h-7" />
-                </div>
-                <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:from-cyan-300 group-hover:to-blue-400 transition-all">
-                  Who Am I
-                </h3>
-              </div>
+            <div className="group p-6 rounded-2xl border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg">
+              <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
+                Who Am I
+              </h3>
               <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
                 I’m a 4th-year BSIT student and aspiring full-stack web developer. My portfolio showcases my growing abilities in web development as I refine and expand my skills. I focus on creating thoughtful and functional web solutions, combining clean code, responsive design, and user-centered interfaces.
               </p>
             </div>
 
-            {/* Core Values */}
-            <div className="group p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 bg-opacity-20 flex items-center justify-center">
-                  <FaHandsHelping className="text-white w-6 h-6 lg:w-7 lg:h-7" />
-                </div>
-                <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 group-hover:from-purple-300 group-hover:to-pink-400 transition-all">
-                  Core Values
-                </h3>
-              </div>
-              <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
-                I value clean and maintainable code, user-centered design, continuous learning, collaboration, and productivity. I strive to combine these principles in every project I work on to ensure high-quality and impactful solutions.
-              </p>
-            </div>
-
-            {/* Motto */}
-            <div className="group p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all shadow-md hover:shadow-lg">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 bg-opacity-20 flex items-center justify-center">
-                  <FaLightbulb className="text-white w-6 h-6 lg:w-7 lg:h-7" />
-                </div>
-                <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 group-hover:from-yellow-300 group-hover:to-red-400 transition-all">
-                  Motto
-                </h3>
-              </div>
+            <div className="group p-6 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all shadow-md hover:shadow-lg">
+              <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
+                Motto
+              </h3>
               <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
                 "If I have something to do today, I will do it now. To do something else tomorrow."
               </p>
             </div>
           </div>
         </div>
+
+
+        <h3 className="text-2xl font-bold text-left">
+          Core Values
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+          {coreValues.map((value, idx) => (
+            <div
+              key={idx}
+              className="group flex flex-col gap-2 p-4 border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl"
+            >
+              <div className="flex items-center gap-3">
+                <div className={`value-icon w-6 h-6 text-lg bg-clip-text text-transparent bg-gradient-to-r ${value.gradient}`}>
+                  {value.icon}
+                </div>
+
+                <span className={`font-medium text-lg md:text-xl bg-clip-text text-transparent bg-gradient-to-r ${value.gradient}`}>
+                  {value.title}
+                </span>
+              </div>
+              <p className="text-gray-200 text-sm md:text-base leading-relaxed ml-9">
+                {value.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+
+        <h3 className="text-2xl font-bold text-left mt-6">
+          Hobbies & Interests
+        </h3>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {hobbies.map((hobby, idx) => (
+            <div
+              key={idx}
+              className="hobby flex items-center gap-3 p-3 border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg"
+            >
+              <div className="flex-shrink-0 w-12 h-12">
+                <img
+                  src={hobby.imgSrc}
+                  alt={hobby.title}
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </div>
+              <span className="font-medium text-sm sm:text-base">
+                {hobby.title}
+              </span>
+            </div>
+          ))}
+        </div>
+
+
       </section>
     )
   }
