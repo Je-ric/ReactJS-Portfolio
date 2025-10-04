@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa"
 // Props: ProjectCard receives project data (props)
 const ProjectCard = ({ project, onProjectClick }) => (
   <div 
-    className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-gray-600 hover:border-cyan-500 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
+    className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-cyan-500/70 hover:border-pink-400 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
     onClick={() => onProjectClick(project)}
   >
 

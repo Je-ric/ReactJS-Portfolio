@@ -78,7 +78,8 @@ class About extends Component {
 
           <div className="flex-1 flex flex-col gap-6 min-w-[250px]">
 
-            <div className="group p-6 rounded-2xl border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg">
+            {/* "Who Am I" card */}
+            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-blue-400 transition-all shadow-md hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500">
                 Who Am I
               </h3>
@@ -87,7 +88,8 @@ class About extends Component {
               </p>
             </div>
 
-            <div className="group p-6 rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all shadow-md hover:shadow-lg">
+            {/* "Motto" card */}
+            <div className="group p-6 rounded-2xl border border-cyan-500/70 hover:border-yellow-400 transition-all shadow-md hover:shadow-lg">
               <h3 className="text-xl font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
                 Motto
               </h3>
@@ -107,7 +109,7 @@ class About extends Component {
             <div
               key={idx}
               onClick={() => this.handleValueClick(value.title)}
-              className={`group flex flex-col gap-2 p-4 border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl cursor-pointer ${
+              className={`group flex flex-col gap-2 p-4 border border-cyan-500/70 hover:border-purple-400 transition-all shadow-md hover:shadow-lg bg-background/80 rounded-xl cursor-pointer ${
                 activeValue === value.title ? 'border-purple-500/70 bg-purple-500/10' : ''
               }`}
             >
@@ -135,7 +137,7 @@ class About extends Component {
           {hobbies.map((hobby, idx) => (
             <div
               key={idx}
-              className="hobby flex items-center gap-3 p-3 border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg"
+              className="hobby flex items-center gap-3 p-3 border border-cyan-500/70 hover:border-pink-400 transition-all shadow-md hover:shadow-lg"
             >
               <div className="flex-shrink-0 w-12 h-12">
                 <img

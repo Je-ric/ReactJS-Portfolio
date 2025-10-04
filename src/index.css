@@ -75,3 +75,61 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
 }
+
+#contact p,
+#contact span,
+#contact a {
+  color: #111
+}
+
+.dark #contact p,
+.dark #contact span,
+.dark #contact a {
+  color: #fff
+}
+
+
+.contact-form{
+	backdrop-filter: blur(2px) saturate(150%);
+    -webkit-backdrop-filter: blur(2px) saturate(150%);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .contact-form{
+	background-color: transparent;
+}
+
+.glass-input {
+  background: hsl(var(--background) / 0.7);
+  border: 1px solid hsl(var(--border) / 0.5);
+  color: hsl(var(--foreground));
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-input:focus {
+  border-color: #22d3ee; 
+  background: hsl(var(--background) / 0.85);
+}
+
+.dark .glass-input:focus {
+  border-color: #22d3ee; 
+  background: hsl(var(--background) / 0.85);
+}
+
+.glass-input {
+  background: hsl(var(--background) / 0.5);
+  color: hsl(var(--foreground));
+  border-color: gray;
+}
+
+.dark .glass-input {
+  background: hsl(var(--background) / 0.5);
+  color: hsl(var(--foreground));
+  border-color: gray; 
+}

@@ -89,10 +89,10 @@ class Contact extends Component {
     ]
 
     const followLinks = [
-      { icon: <FaGithub className="text-white w-6 h-6" />, link: "https://github.com/Je-ric" },
-      { icon: <FaCodepen className="text-white w-6 h-6" />, link: "https://codepen.io/Je-richiro" },
-      { icon: <FaFacebook className="text-white w-6 h-6" />, link: "https://www.facebook.com/jeric.delacruz.18294" },
-      { icon: <FaInstagram className="text-white w-6 h-6" />, link: "https://www.instagram.com/hiro.deecee/" },
+      { icon: <FaGithub className="w-6 h-6" />, link: "https://github.com/Je-ric" },
+      { icon: <FaCodepen className="w-6 h-6" />, link: "https://codepen.io/Je-richiro" },
+      { icon: <FaFacebook className="w-6 h-6" />, link: "https://www.facebook.com/jeric.delacruz.18294" },
+      { icon: <FaInstagram className="w-6 h-6" />, link: "https://www.instagram.com/hiro.deecee/" },
     ]
 
     return (
@@ -118,7 +118,7 @@ class Contact extends Component {
                     rel="noopener noreferrer"
                     onClick={() => this.handleClick(method.name)}
                     onDoubleClick={() => this.handleDoubleClick(method.name)}
-                    className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-orange-500 hover:border-cyan-500 transition-all shadow-md hover:shadow-lg cursor-pointer"
+                    className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 transition-all shadow-md hover:shadow-lg cursor-pointer"
                   >
                     <div className="flex-shrink-0 p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 bg-opacity-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                       <span className="text-white w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 group-hover:text-cyan-400">
@@ -144,7 +144,7 @@ class Contact extends Component {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group p-3 bg-background/80 backdrop-blur-md rounded-xl border border-orange-500 hover:border-cyan-500 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-all duration-300 transform hover:translate-x-1 hover:-translate-y-1"
+                    className="group p-3 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-all duration-300 transform hover:translate-x-1 hover:-translate-y-1"
                   >
                     <div className="flex items-center justify-center w-full h-full transition-colors duration-300 group-hover:text-cyan-500">
                       {item.icon}
@@ -156,7 +156,7 @@ class Contact extends Component {
             </div>
 
             {/* Right Column: Form */}
-            <div className="contact-form backdrop-blur-md p-6 rounded-2xl border border-gray-700 shadow-md">
+            <div className="contact-form z-20 backdrop-blur-md p-6 rounded-2xl border border-cyan-400 shadow-md">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               <form onSubmit={this.handleSubmit} className="space-y-4">
                 {["name", "email", "subject"].map((field) => (
@@ -168,7 +168,7 @@ class Contact extends Component {
                       value={formData[field]}
                       onChange={this.handleInputChange}
                       onInput={this.handleInput}
-                      className={`w-full p-3 border rounded-lg ${errors[field] ? "border-red-500" : "border-input"}`}
+                      className={`glass-input w-full p-3 border rounded-lg ${errors[field] ? "border-red-500" : "border-input"}`}
                     />
                     {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
                   </div>
@@ -181,7 +181,7 @@ class Contact extends Component {
                     value={formData.message}
                     onChange={this.handleInputChange}
                     onInput={this.handleInput}
-                    className={`w-full p-3 border rounded-lg resize-none ${errors.message ? "border-red-500" : "border-input"}`}
+                    className={`glass-input w-full p-3 border rounded-lg resize-none ${errors.message ? "border-red-500" : "border-input"}`}
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                 </div>
