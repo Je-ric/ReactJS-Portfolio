@@ -14,7 +14,6 @@
 */
 
 import { Component } from "react"
-import DualMarquee from '../layout/DualMarquee';
 
 class Contact extends Component {
   constructor(props) {
@@ -171,8 +170,6 @@ class Contact extends Component {
       <section id="contact" className="min-h-screen py-20 px-8">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-
-            <DualMarquee word1="CONTACT" word2="ME" />
 
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Ready to help with your healthcare technology needs. Messages sent: {submitCount}

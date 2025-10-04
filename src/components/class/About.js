@@ -1,8 +1,7 @@
 "use client"
 
 import { Component } from "react"
-import DualMarquee from "../layout/DualMarquee"
-import { FaUser, FaLaptopCode, FaLightbulb, FaHandsHelping } from "react-icons/fa"
+import { FaUser, FaLightbulb, FaHandsHelping } from "react-icons/fa"
 
 class About extends Component {
   constructor(props) {
@@ -21,65 +20,83 @@ class About extends Component {
     const { visitCount } = this.state
 
     return (
-      <section id="about" className="min-h-screen py-20 px-4 md:px-8">
+      <section id="about" className="min-h-screen max-w-7xl justify-center py-20 px-4 md:px-8">
         <div className="container mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <DualMarquee word1="ABOUT" word2="ME" />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-4">
-              I'm a BSIT student at Central Luzon State University and an aspiring full-stack developer. Visit #{visitCount}
+              Visit #{visitCount}
             </p>
           </div>
 
-          {/* Two-column layout */}
-          <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-12">
+          {/* Responsive two-column layout */}
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+            
             {/* Left Column: Image */}
-            <div className="flex justify-center lg:justify-start flex-1">
+            <div className="flex justify-center lg:justify-start w-full lg:w-1/3 flex-shrink-0">
               <img
                 src="/src/profile.png"
                 alt="About Me"
-                className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto object-cover rounded-2xl shadow-xl z-20"
+                className="w-64 z-20 sm:w-72 md:w-80 lg:w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-full h-auto object-cover rounded-2xl shadow-xl"
               />
             </div>
 
             {/* Right Column: Info */}
             <div className="flex-1 flex flex-col gap-6 w-full">
-              {/* My Story */}
-              <div className="glass-card bg-background/80 backdrop-blur-md border-b p-6 rounded-2xl">
-                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                  <FaUser /> My Story
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  I’m a 4th-year BSIT student and aspiring full-stack web developer. My portfolio showcases my growing abilities in web development as I refine and expand my skills.
-                </p>
-                <p className="text-muted-foreground">
-                  I focus on creating thoughtful and functional web solutions, combining clean code, responsive design, and user-centered interfaces.
-                </p>
-              </div>
 
-              {/* Motto */}
-              <div className="glass-card bg-background/80 backdrop-blur-md border-b p-6 rounded-2xl">
-                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                  <FaLightbulb /> Motto
-                </h3>
-                <p className="text-muted-foreground text-sm leading-6">
-                  "If I have something to do today, I will do it now. To do something else tomorrow."
-                </p>
-              </div>
 
-              {/* Core Values */}
-              <div className="glass-card bg-background/80 backdrop-blur-md border-b p-6 rounded-2xl">
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <FaHandsHelping /> Core Values
-                </h3>
-                <ul className="space-y-3 text-muted-foreground">
-                  <li className="flex items-center gap-2"><FaLaptopCode className="text-primary" /> Clean & maintainable code</li>
-                  <li className="flex items-center gap-2"><FaUser classNameb="text-primary" /> User-centered design</li>
-                  <li className="flex items-center gap-2"><FaLightbulb className="text-primary" /> Continuous learning</li>
-                  <li className="flex items-center gap-2"><FaHandsHelping className="text-primary" /> Collaboration & productivity</li>
-                </ul>
-              </div>
+ {/* Who Am I */}
+<div className="flex-1 group p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-cyan-500/50 transition-all shadow-md hover:shadow-lg">
+  <div className="flex items-center gap-3 mb-3">
+    <div className="p-3 rounded-lg bg-gradient-to-r from-cyan-400 to-blue-500 bg-opacity-20 flex items-center justify-center">
+      <FaUser className="text-white w-6 h-6 lg:w-7 lg:h-7" />
+    </div>
+    <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-500 group-hover:from-cyan-300 group-hover:to-blue-400 transition-all">
+      Who Am I
+    </h3>
+  </div>
+  <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
+    I’m a 4th-year BSIT student and aspiring full-stack web developer. My portfolio showcases my growing abilities in web development as I refine and expand my skills. I focus on creating thoughtful and functional web solutions, combining clean code, responsive design, and user-centered interfaces.
+  </p>
+</div>
+
+{/* Core Values */}
+<div className="flex-1 group p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-purple-500/50 transition-all shadow-md hover:shadow-lg">
+  <div className="flex items-center gap-3 mb-3">
+    <div className="p-3 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 bg-opacity-20 flex items-center justify-center">
+      <FaHandsHelping className="text-white w-6 h-6 lg:w-7 lg:h-7" />
+    </div>
+    <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500 group-hover:from-purple-300 group-hover:to-pink-400 transition-all">
+      Core Values
+    </h3>
+  </div>
+  <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
+    I value clean and maintainable code, user-centered design, continuous learning, collaboration, and productivity. I strive to combine these principles in every project I work on to ensure high-quality and impactful solutions.
+  </p>
+</div>
+
+{/* Motto */}
+<div className="group mt-6 p-6 bg-background/80 backdrop-blur-md rounded-2xl border border-gray-700 hover:border-yellow-500/50 transition-all shadow-md hover:shadow-lg">
+  <div className="flex items-center gap-3 mb-3">
+    <div className="p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 bg-opacity-20 flex items-center justify-center">
+      <FaLightbulb className="text-white w-6 h-6 lg:w-7 lg:h-7" />
+    </div>
+    <h3 className="text-lg lg:text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500 group-hover:from-yellow-300 group-hover:to-red-400 transition-all">
+      Motto
+    </h3>
+  </div>
+  <p className="text-gray-200 text-sm lg:text-base leading-relaxed">
+    "If I have something to do today, I will do it now. To do something else tomorrow."
+  </p>
+</div>
+
+
+
+
             </div>
+
+
+
           </div>
         </div>
       </section>

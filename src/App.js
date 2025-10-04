@@ -13,6 +13,7 @@ import ScrollProgressIndicator from "./components/ScrollProgressIndicator";
 import BackToTop from "./components/BackToTop";
 import Mouse from "./components/Mouse";
 import GlobalBG from "./components/ui/GlobalBG";
+import DualMarquee from "./components/layout/DualMarquee";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("home");
@@ -69,8 +70,16 @@ function App() {
         {/*  */}
         <main className="pt-20">
           <Home />
+          
+          <DualMarquee word1="ABOUT" word2="ME" />
           <About />
+
+          
+          <DualMarquee word1="MY" word2="PROJECTS" />
           <Projects />
+
+          
+        <DualMarquee word1="ME" word2="CONTACT" />
           <Contact />
         </main>
 

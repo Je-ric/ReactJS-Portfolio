@@ -1,6 +1,5 @@
 "use client"
 import { useState } from "react"
-import DualMarquee from '../layout/DualMarquee';
 
 const ProjectCard = ({ project, onView }) => (
   <div className="project-card baymax-card p-6 rounded-lg">
@@ -75,8 +74,6 @@ const Projects = () => {
 
   return (
     <section id="projects" className="min-h-screen py-20 px-8">
-
-      <DualMarquee word1="MY" word2="PROJECTS" />
 
       <div className="container mx-auto">
         <div className="text-center mb-12">
