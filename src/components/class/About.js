@@ -70,7 +70,7 @@ class About extends Component {
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
           <div className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72">
             <img
-              src="/src/profile.png"
+              src={`${process.env.PUBLIC_URL}/profile.png`}
               alt="Profile"
               className="w-full h-full object-cover rounded-xl shadow-xl relative z-20"
             />
