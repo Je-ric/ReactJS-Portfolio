@@ -201,7 +201,7 @@
 /* Project */
 
 .proj-desc{
-	color: #111;
+	color: #111 !important;
 }
 
 .dark .proj-desc{
@@ -216,14 +216,14 @@
 
 
 .proj-card{
-	backdrop-filter: blur(2px) saturate(150%);
-    -webkit-backdrop-filter: blur(2px) saturate(150%);
-    background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(2px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(2px) saturate(150%) !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
 	
 }
 
 .dark .proj-card{
-	background-color: #091121;
+	background-color: #091121 !important;
 }
 
 .group{
