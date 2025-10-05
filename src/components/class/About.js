@@ -1,6 +1,7 @@
 "use client"
 
 import { Component } from "react"
+import { motion } from "framer-motion"
 import { FaLightbulb, FaHandsHelping, FaUser, FaCode } from "react-icons/fa"
 
 class About extends Component {
@@ -68,7 +69,13 @@ class About extends Component {
       <section id="about" className="min-h-screen max-w-7xl mx-auto px-4 py-12 my-12 flex flex-col gap-12">
 
 
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6">
+        <motion.div 
+          className="flex flex-col lg:flex-row items-center lg:items-start gap-6"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5 }}
+        >
           <div className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72">
             <img
               src={`${process.env.PUBLIC_URL}/profile.png`}
@@ -99,20 +106,31 @@ class About extends Component {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
 
 
         <h3 className="text-2xl font-bold text-left">
           Core Values
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
+        >
           {coreValues.map((value, idx) => (
-            <div
+            <motion.div
               key={idx}
               onClick={() => this.handleValueClick(value.title)}
               className={`group flex flex-col gap-2 p-4 border border-cyan-500/70 hover:border-purple-400 transition-all shadow-md hover:shadow-lg bg-background/80 backdrop-blur-md rounded-xl cursor-pointer ${
                 activeValue === value.title ? 'border-purple-500/70 bg-purple-500/10' : ''
               }`}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.35 }}
+              whileHover={{ y: -4 }}
             >
               <div className="flex items-center gap-3">
                 <div className={`value-icon w-6 h-6 text-lg bg-clip-text text-transparent bg-gradient-to-r ${value.gradient}`}>
@@ -126,19 +144,30 @@ class About extends Component {
               <p className="text-gray-200 text-sm md:text-base leading-relaxed ml-9">
                 {value.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
 
         <h3 className="text-2xl font-bold text-left mt-6">
           Hobbies & Interests
         </h3>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 z-20">
+        <motion.div 
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 z-20"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
+        >
           {hobbies.map((hobby, idx) => (
-            <div
+            <motion.div
               key={idx}
               className="hobby flex items-center gap-3 p-3 border border-cyan-500/70 hover:border-pink-400 transition-all shadow-md hover:shadow-lg"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.3 }}
+              whileHover={{ y: -3 }}
             >
               <div className="flex-shrink-0 w-12 h-12">
                 <img
@@ -150,9 +179,9 @@ class About extends Component {
               <span className="font-medium text-sm sm:text-base">
                 {hobby.title}
               </span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
 
       </section>

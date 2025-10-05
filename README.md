@@ -64,7 +64,10 @@ npm install gh-pages --save-dev
 
 # Add ShadCN ScrambledText component
 npx shadcn@latest add https://reactbits.dev/r/ScrambledText-JS-TW
+npx shadcn@latest add https://reactbits.dev/r/RotatingText-JS-TW
 
+npm install framer-motion
+npm install react-simple-typewriter
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 

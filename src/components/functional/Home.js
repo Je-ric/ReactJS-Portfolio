@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-
+import { motion } from "framer-motion"
+import { Typewriter } from "react-simple-typewriter"
 function Home() {
   const [visitCount, setVisitCount] = useState(0)   // State
 
@@ -30,14 +31,45 @@ function Home() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12">
 
         {/* ------------------------------------------------------------ */}
-        <div className="flex-1 text-center lg:text-left space-y-6 lg:space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex-1 text-center lg:text-left space-y-6 lg:space-y-8"
+        >
           <p className="hello font-mono text-sm mb-4"> {'>_ HELLO_WORLD.EXECUTE()'}</p>
           <h1 className="text-7xl md:text-8xl font-bold">
-            Hello, <br /> I'm <span className="gradient-text">Je-ric </span>
+            Hello, <br /> I'm 
+            <span className="gradient-text"> Je-ric </span>
           </h1>
-          <p className="text-lg max-w-xl mx-auto lg:mx-0">
+
+  
+
+
+          <div className="text-xl md:text-2xl font-semibold min-h-[2.5rem]">
+            <span className="typewriter-gradient">
+              <Typewriter
+                words={[
+                  "Easy, Ako lang to.",
+                  "Ctrl + C then Ctrl + V",
+                  "StackOverflow all the way!",
+                  "Code. Create. Inspire.",
+                  "Indian Videos == Life Savers.",
+                  "Always learning, always coding.",
+                ]}
+                loop={0}
+                cursor
+                cursorStyle="|"
+                typeSpeed={60}
+                deleteSpeed={40}
+                delaySpeed={1500}
+              />
+            </span>
+          </div>
+          {/* <p className="text-lg max-w-xl mx-auto lg:mx-0">
             I'm a BSIT student at Central Luzon State University and an aspiring full-stack developer.
-          </p>
+          </p> */}
 
           <div className="mt-6 flex flex-wrap gap-4 justify-center lg:justify-start">
             <a
@@ -60,11 +92,17 @@ function Home() {
               Get in Touch
             </a>
           </div>
-        </div>
+        </motion.div>
 
 
         {/* ------------------------------------------------------------ */}
-        <div className="w-full lg:w-1/2 rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-xl">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          className="w-full lg:w-1/2 rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-xl"
+        >
           <div className="gradient-border">
             <div className="code-window bg-[#091121]">
               <div className="window-header flex items-center gap-2 px-4 py-2 bg-[#1e293b]">
@@ -200,7 +238,7 @@ function Home() {
 
             </div>
           </div>
-        </div>
+        </motion.div>
 
 
       </div>

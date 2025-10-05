@@ -1,13 +1,19 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
 import { FaGithub } from "react-icons/fa"
 
 // Props: ProjectCard (child) receives project data (props)
 const ProjectCard = ({ project, onProjectClick }) => (
-  <div 
+  <motion.div 
     className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-cyan-500/70 hover:border-pink-400 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
     onClick={() => onProjectClick(project)}
+    initial={{ opacity: 0, y: 24 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.4, ease: "easeOut" }}
+    whileHover={{ y: -6 }}
   >
 
     {project.image ? (
@@ -53,7 +59,7 @@ const ProjectCard = ({ project, onProjectClick }) => (
       </a>
     </div>
 
-  </div>
+  </motion.div>
 )
 
 // Parent 
@@ -158,7 +164,13 @@ const Projects = () => { // rerender (php)
         </h2>
         
         {/* Filter buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <motion.div 
+          className="flex flex-wrap justify-center gap-2 mb-8"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
+        >
           {filterOptions.map((filter) => (
             <button
               key={filter}  
@@ -174,7 +186,7 @@ const Projects = () => { // rerender (php)
               {filter.charAt(0).toUpperCase() + filter.slice(1)} {/* Pang capital */}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Props: Passing project data and click handler to ProjectCard */}

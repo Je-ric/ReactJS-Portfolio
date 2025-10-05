@@ -1,5 +1,5 @@
 // Usage:
-// import Shuffle from './Shuffle';
+// import Shuffle from '../ui/Shuffle';
 
 // <Shuffle
 //   text="Hello World"

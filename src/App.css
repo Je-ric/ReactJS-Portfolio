@@ -35,6 +35,34 @@
 }
 
 
+.typewriter-gradient {
+  background: linear-gradient(
+    270deg,
+    #06b6d4,  
+    #9333ea,  
+    #ec48ad, 
+    #06b6d4   
+  );
+  background-size: 400% 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: universal-gradient 6s ease infinite;
+}
+
+@keyframes universal-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+
+
+
 /* Section Title Marquee */
 .dual-marquee {
 	width: 100%;
@@ -269,6 +297,7 @@
 .dark .value-icon{
 	color: #fff;
 }
+
 
 
 

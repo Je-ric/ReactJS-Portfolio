@@ -2,6 +2,7 @@
 
 import { Component } from "react"
 import { FaEnvelope, FaGithub, FaCodepen, FaFacebook, FaInstagram, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 class Contact extends Component {
   constructor(props) {
@@ -99,9 +100,9 @@ class Contact extends Component {
     return (
       <section id="contact" className="min-h-screen max-w-7xl mx-auto px-4 py-12 my-12">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-12" initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.2}} transition={{duration:0.5}}>
             {/* Left Column: Contact & Follow */}
-            <div>
+            <motion.div initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.2}} transition={{duration:0.4}}>
               <div className="mb-6 text-left">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-2">Let's Build Something Amazing Together</h2>
                 <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto">
@@ -112,15 +113,7 @@ class Contact extends Component {
               {/* Contact info */}
               <div className="grid grid-cols-1 gap-4 mb-6">
                 {contactMethods.map((method, idx) => (
-                  <a
-                    key={idx}
-                    href={method.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => this.handleClick(method.name)}
-                    onDoubleClick={() => this.handleDoubleClick(method.name)}
-                    className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 transition-all shadow-md hover:shadow-lg cursor-pointer"
-                  >
+                  <motion.a key={idx} href={method.link} target="_blank" rel="noopener noreferrer" onClick={() => this.handleClick(method.name)} onDoubleClick={() => this.handleDoubleClick(method.name)} className="group flex items-center gap-3 p-4 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 transition-all shadow-md hover:shadow-lg cursor-pointer" initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.2}} transition={{duration:0.35}}>
                     <div className="flex-shrink-0 p-3 rounded-lg bg-gradient-to-r from-yellow-400 to-red-500 bg-opacity-20 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
                       <span className="text-white w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-300 group-hover:text-cyan-400">
                         {method.icon}
@@ -132,7 +125,7 @@ class Contact extends Component {
                       </h3>
                       <span className="text-gray-200 text-sm sm:text-base">{method.username}</span>
                     </div>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
 
@@ -140,24 +133,18 @@ class Contact extends Component {
               <h3 className="text-lg font-semibold mb-4">Follow Me</h3>
               <div className="flex gap-4 mt-4">
                 {followLinks.map((item, idx) => (
-                  <a
-                    key={idx}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group p-3 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-all duration-300 transform hover:translate-x-1 hover:-translate-y-1"
-                  >
+                  <motion.a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="group p-3 bg-background/80 backdrop-blur-md rounded-xl border border-cyan-400 hover:border-cyan-400 shadow-md hover:shadow-lg flex items-center justify-center w-12 h-12 transition-all duration-300 transform hover:translate-x-1 hover:-translate-y-1" initial={{opacity:0,y:10}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.2}} transition={{duration:0.35}}>
                     <div className="flex items-center justify-center w-full h-full transition-colors duration-300 group-hover:text-cyan-500">
                       {item.icon}
                     </div>
-                  </a>
+                  </motion.a>
                 ))}
               </div>
 
-            </div>
+            </motion.div>
 
             {/* Right Column: Form */}
-            <div className="contact-form z-20 backdrop-blur-md p-6 rounded-2xl border border-cyan-400 shadow-md">
+            <motion.div className="contact-form z-20 backdrop-blur-md p-6 rounded-2xl border border-cyan-400 shadow-md" initial={{opacity:0,y:16}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.2}} transition={{duration:0.4}}>
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               <form onSubmit={this.handleSubmit} className="space-y-4">
                 {["name", "email"].map((field) => (
@@ -232,12 +219,11 @@ class Contact extends Component {
                   </button>
                 </div>
               </form>
-            </div>
+            </motion.div>
 
 
 
-
-          </div>
+          </motion.div>
         </div>
       </section>
     )
