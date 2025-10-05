@@ -199,12 +199,13 @@
 
 
 /* Project */
+
 .proj-desc{
 	color: #111;
 }
 
 .dark .proj-desc{
-	color: #fff;
+	color: #fff !important;
 }
 
 .proj-pill{
