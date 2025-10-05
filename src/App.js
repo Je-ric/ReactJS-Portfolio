@@ -74,7 +74,6 @@ function App() {
           
           <DualMarquee word1="ABOUT" word2="ME" />
           <About />
-
           
           <DualMarquee word1="MY" word2="PROJECTS" />
           <Projects />

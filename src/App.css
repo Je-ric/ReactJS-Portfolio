@@ -237,9 +237,13 @@
 }
 
 .proj-pill{
-	background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+	background: linear-gradient(90deg, #48d6ec, #8b5cf6, #3b82f6);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
+	
+	backdrop-filter: blur(2px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(2px) saturate(150%) !important;
+    background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 
@@ -297,6 +301,7 @@
 .dark .value-icon{
 	color: #fff;
 }
+
 
 
 

@@ -44,7 +44,7 @@ const ProjectCard = ({ project, onProjectClick }) => (
         {project.technologies.map((tech, idx) => (
           <span
             key={idx}
-            className="proj-pill px-3 py-1 text-gray-200 border border-green-500 rounded-full text-xs md:text-sm cursor-default
+            className="proj-pill px-3 py-1 text-gray-200 border border-cyan-500 rounded-full text-xs md:text-sm cursor-default
                       transition-transform duration-200 hover:-translate-y-1"
           >
             {tech}

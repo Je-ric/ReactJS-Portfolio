@@ -109,7 +109,6 @@ class About extends Component {
           </div>
         </motion.div>
 
-
         <h3 className="text-2xl font-bold text-left">
           Core Values
         </h3>
