@@ -9,10 +9,14 @@ const ProjectCard = ({ project, onProjectClick }) => (
   <motion.div 
     className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-cyan-500/70 hover:border-pink-400 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
     onClick={() => onProjectClick(project)}
-    initial={{ opacity: 0, y: 24 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, amount: 0.2 }}
-    transition={{ duration: 0.4, ease: "easeOut" }}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: false, amount: 0.25 }}
+    transition={{ duration: 0.45, ease: "easeOut" }}
+    variants={{
+      hidden: { opacity: 0, y: 22, rotate: 0.25 },
+      visible: { opacity: 1, y: 0, rotate: 0 }
+    }}
     whileHover={{ y: -6 }}
   >
 
@@ -166,10 +170,11 @@ const Projects = () => { // rerender (php)
         {/* Filter buttons */}
         <motion.div 
           className="flex flex-wrap justify-center gap-2 mb-8"
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.4 }}
+          variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
         >
           {filterOptions.map((filter) => (
             <button

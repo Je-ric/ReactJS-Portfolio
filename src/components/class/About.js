@@ -71,10 +71,11 @@ class About extends Component {
 
         <motion.div 
           className="flex flex-col lg:flex-row items-center lg:items-start gap-6"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.25 }}
           transition={{ duration: 0.5 }}
+          variants={{ hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0 } }}
         >
           <div className="flex-shrink-0 w-64 h-64 sm:w-72 sm:h-72">
             <img
@@ -114,10 +115,11 @@ class About extends Component {
         </h3>
         <motion.div 
           className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.4 }}
+          variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
         >
           {coreValues.map((value, idx) => (
             <motion.div
@@ -126,10 +128,11 @@ class About extends Component {
               className={`group flex flex-col gap-2 p-4 border border-cyan-500/70 hover:border-purple-400 transition-all shadow-md hover:shadow-lg bg-background/80 backdrop-blur-md rounded-xl cursor-pointer ${
                 activeValue === value.title ? 'border-purple-500/70 bg-purple-500/10' : ''
               }`}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.35 }}
+              variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0 } }}
               whileHover={{ y: -4 }}
             >
               <div className="flex items-center gap-3">
@@ -154,19 +157,21 @@ class About extends Component {
         </h3>
         <motion.div 
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 z-20"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.4 }}
+          variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
         >
           {hobbies.map((hobby, idx) => (
             <motion.div
               key={idx}
               className="hobby flex items-center gap-3 p-3 border border-cyan-500/70 hover:border-pink-400 transition-all shadow-md hover:shadow-lg"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.3 }}
+              variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
               whileHover={{ y: -3 }}
             >
               <div className="flex-shrink-0 w-12 h-12">

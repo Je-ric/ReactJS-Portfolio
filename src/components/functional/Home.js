@@ -32,10 +32,14 @@ function Home() {
 
         {/* ------------------------------------------------------------ */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.35 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
+          variants={{
+            hidden: { opacity: 0, y: 28 },
+            visible: { opacity: 1, y: 0 }
+          }}
           className="flex-1 text-center lg:text-left space-y-6 lg:space-y-8"
         >
           <p className="hello font-mono text-sm mb-4"> {'>_ HELLO_WORLD.EXECUTE()'}</p>
@@ -97,10 +101,14 @@ function Home() {
 
         {/* ------------------------------------------------------------ */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.35 }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          variants={{
+            hidden: { opacity: 0, y: 32, rotate: -0.6, scale: 0.99 },
+            visible: { opacity: 1, y: 0, rotate: 0, scale: 1 }
+          }}
           className="w-full lg:w-1/2 rounded-2xl overflow-hidden max-w-3xl mx-auto shadow-xl"
         >
           <div className="gradient-border">
