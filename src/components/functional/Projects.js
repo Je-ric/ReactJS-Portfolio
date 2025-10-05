@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { FaGithub } from "react-icons/fa"
 
-// Props: ProjectCard receives project data (props)
+// Props: ProjectCard (child) receives project data (props)
 const ProjectCard = ({ project, onProjectClick }) => (
   <div 
     className="proj-card relative p-6 z-20 rounded-xl bg-[#091121] border border-cyan-500/70 hover:border-pink-400 hover:shadow-xl transition-colors duration-300 shadow-md flex flex-col justify-between cursor-pointer"
@@ -56,9 +56,18 @@ const ProjectCard = ({ project, onProjectClick }) => (
   </div>
 )
 
-const Projects = () => { 
+// Parent 
+// Nandito yung mga projects data
+// So meron tayong child component na ProjectCard (nasa taas):
+    // ginagamit natin yun as child as format na lalagyan ng data
+    // then yung data is from the parent (Projects) na ilalagay sa ProjectCards
+const Projects = () => { // rerender (php)
   // State: Filter state for project filtering
-  const [selectedFilter, setSelectedFilter] = useState("all")
+  // so state selectedFilter (current filter) - "to determine kung anong filter ang active"
+  // then yung setSelectedFilter is tinatawag sa pagchange ng filter - "to update the filter"
+
+  // nagsisimula yun gamit yung event handler na handleFilterChange (proceed sa fnction)
+  const [selectedFilter, setSelectedFilter] = useState("all") // matic default
   const [projects] = useState([
     {
       id: 1,
@@ -111,8 +120,9 @@ const Projects = () => {
   ])
 
   // Event handling: Filter change handler
+  // kinukuha yung value ng key na pinindot sa filterOptions
   const handleFilterChange = (filter) => {
-    setSelectedFilter(filter)
+    setSelectedFilter(filter) // (php)
     console.log('Filter changed to:', filter)
   }
 
@@ -121,12 +131,19 @@ const Projects = () => {
     console.log('Project clicked:', project.title)
   }
 
-  // filter based sa selectedFilter
+  // filter based sa selectedFilter (php)
+  // niloloop yung projects array
+  // then chinecheck every project if yung technologies (array) may match sa selectedFilter
+  // by default, ito yung una to render
+  
+  // sunod toh
+  // REMEMBER: every reload or click sa filter, nagrerender ulit to
+  // thats why we didnt know when, we just know na pag nasa handleFilterChange, magrere-render to
   const filteredProjects = selectedFilter === "all" 
     ? projects 
     : projects.filter(project => 
         project.technologies.some(tech => 
-          tech.toLowerCase().includes(selectedFilter.toLowerCase())
+          tech.toLowerCase().includes(selectedFilter.toLowerCase()) // para case insensitive
         )
       )
 
@@ -144,15 +161,17 @@ const Projects = () => {
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           {filterOptions.map((filter) => (
             <button
-              key={filter}
-              onClick={() => handleFilterChange(filter)}
+              key={filter}  
+              /* Basta nasa filterOptions, matic may button, then pag click nakukuha yung value sa key na pinapasa sa handler
+                na ginagamit as filter */
+              onClick={() => handleFilterChange(filter)} /* Ex. handleFilterChange('php') passed to handler */
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                selectedFilter === filter
+                selectedFilter === filter /* current state */ 
                   ? 'bg-cyan-500 text-white shadow-lg'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
               }`}
             >
-              {filter.charAt(0).toUpperCase() + filter.slice(1)}
+              {filter.charAt(0).toUpperCase() + filter.slice(1)} {/* Pang capital */}
             </button>
           ))}
         </div>

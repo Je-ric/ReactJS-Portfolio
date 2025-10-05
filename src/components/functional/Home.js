@@ -12,6 +12,7 @@ function Home() {
     }
 
     // State: Initialize visit count from localStorage
+    // different every device/browser - walang storage, thats why iba-iba
     const visits = localStorage.getItem("homeVisits") || 0
     const newVisitCount = Number.parseInt(visits) + 1
     localStorage.setItem("homeVisits", newVisitCount)

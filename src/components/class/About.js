@@ -11,9 +11,10 @@ class About extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('About component mounted')
-  }
+  // usefull for debugging kung gusto mo malaman kung kelan nagrender yung component
+  // componentDidMount() {
+  //   console.log('About component mounted')
+  // }
 
   handleValueClick = (value) => { // counter HAHAHAHAHA
     this.setState({ 

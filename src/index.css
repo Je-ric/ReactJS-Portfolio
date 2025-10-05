@@ -78,13 +78,15 @@ body::-webkit-scrollbar {
 
 #contact p,
 #contact span,
-#contact a {
+#contact a,
+#contact select  {
   color: #111
 }
 
 .dark #contact p,
 .dark #contact span,
-.dark #contact a {
+.dark #contact a,
+.dark #contact select {
   color: #fff
 }
 
@@ -99,7 +101,8 @@ body::-webkit-scrollbar {
 	background-color: transparent;
 }
 
-.glass-input {
+.glass-input,
+#contact option {
   background: hsl(var(--background) / 0.7);
   border: 1px solid hsl(var(--border) / 0.5);
   color: hsl(var(--foreground));
@@ -112,12 +115,14 @@ body::-webkit-scrollbar {
   -webkit-backdrop-filter: blur(8px);
 }
 
-.glass-input:focus {
+.glass-input:focus,
+#contact option {
   border-color: #22d3ee; 
   background: hsl(var(--background) / 0.85);
 }
 
-.dark .glass-input:focus {
+.dark .glass-input:focus,
+.dark #contact option:focus {
   border-color: #22d3ee; 
   background: hsl(var(--background) / 0.85);
 }

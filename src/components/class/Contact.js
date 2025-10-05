@@ -25,6 +25,7 @@ class Contact extends Component {
       formData: { ...prev.formData, [name]: value },
       errors: { ...prev.errors, [name]: "" },
     }))
+    console.log("[onChange]:", name, value)
   }
 
   handleInput = (e) => {
@@ -159,7 +160,7 @@ class Contact extends Component {
             <div className="contact-form z-20 backdrop-blur-md p-6 rounded-2xl border border-cyan-400 shadow-md">
               <h3 className="text-xl font-semibold mb-6">Send a Message</h3>
               <form onSubmit={this.handleSubmit} className="space-y-4">
-                {["name", "email", "subject"].map((field) => (
+                {["name", "email"].map((field) => (
                   <div key={field}>
                     <input
                       type={field === "email" ? "email" : "text"}
@@ -173,6 +174,26 @@ class Contact extends Component {
                     {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
                   </div>
                 ))}
+
+                {/* Subject dropdown */}
+                <div>
+                  <select
+                    name="subject"
+                    value={formData.subject}
+                    onChange={this.handleInputChange}
+                    className={`glass-input w-full p-3 border rounded-lg bg-background/80 backdrop-blur-md ${errors.subject ? "border-red-500" : "border-input"}`}
+                  >
+                    <option value="">Select a Subject</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Collaboration">Collaboration</option>
+                    <option value="Project Request">Project Request</option>
+                    <option value="Feedback">Feedback</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  {errors.subject && <p className="text-red-500 text-sm mt-1">{errors.subject}</p>}
+                </div>
+
+                {/* Message */}
                 <div>
                   <textarea
                     name="message"
@@ -185,23 +206,25 @@ class Contact extends Component {
                   ></textarea>
                   {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                 </div>
+
+
                 <div className="flex space-x-4">
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     onClick={() => this.handleClick("Send")}
-                    onDoubleClick={() => this.handleDoubleClick("Send")}
+                    // onDoubleClick={() => this.handleDoubleClick("Send")}
                     className={`flex-1 px-6 py-2.5 cursor-pointer rounded-full text-white text-sm font-semibold tracking-wide 
-             bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-500 
-             shadow-lg shadow-red-300 hover:shadow-xl hover:scale-105 
-             active:scale-95 active:shadow-md transition-all duration-300 ease-in-out
-             ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        bg-gradient-to-r from-yellow-400 via-red-500 to-yellow-500 
+                        shadow-lg shadow-red-300 hover:shadow-xl hover:scale-105 
+                        active:scale-95 active:shadow-md transition-all duration-300 ease-in-out
+                        ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     {isSubmitting ? 'Sending...' : 'Send'}
                   </button>
                   <button
                     type="button"
-                    onClick={() => { this.handleClick("Reset"); this.handleReset(); }}
+                    // onClick={() => { this.handleClick("Reset"); this.handleReset(); }}
                     onDoubleClick={() => this.handleDoubleClick("Reset")}
                     className="px-6 py-3 rounded-lg text-white bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 transition-all"
                   >

@@ -1,11 +1,15 @@
-const DualMarquee = ({ word1, word2 }) => {
+const DualMarquee = ({ word1, word2 }) => { 
+    // Props
+    // We are using this child component para madisplay yung marquee
+    // The data na dinidisplay is passed from the parent component (App.js)
+    // Sinet lang natin yung parang format, tas lalagyan ng parent
     const phrase = (
         <>
             <span className="word1">{word1}</span>{" "}
             <span className="word2">{word2}</span>
         </>
     );
-
+    
     return (
         <div className="dual-marquee">
             {/* Top Marquee */}
